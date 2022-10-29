@@ -112,6 +112,8 @@
       <div class="video">
             <video autoplay="autoplay" width="100%" loop="loop" muted="muted" class="w-full object-cover banner-h350px mtz-cfejh">
                 <source src="video/hrx.mp4" type="video/mp4">
+                
+                
             </video>
       </div>
       <div class="btext">
@@ -125,10 +127,15 @@
           </div>
       </div>
 </div>
-<div>
       <h1 class=bg_write>COLLECTION</h1>
-</div>
+<div class="catag">
+  <div class="c_img_bg">
+    <img src="img/men.png" alt="">
+  </div>
 
+
+
+</div>
 
 
 
