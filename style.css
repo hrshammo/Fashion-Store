@@ -153,10 +153,22 @@ side .headerimg a:first-child{
     text-align: left;
     z-index: 20;
    position: relative;
-   top: -220px;
+    top: -220px;
    text-transform: uppercase;
+   animation-name: my-animation;
+   animation-duration: 2s;
 }
 
+@keyframes my-animation {
+    from {
+      
+      top: -320px;
+    }
+    to {
+     
+      top: -220px;
+    }
+  }
 .btext .btextbox{
     width: 60px;
     height: 100px;
@@ -166,7 +178,7 @@ side .headerimg a:first-child{
     position: relative;
     justify-items: left;
     top: 7px;
-
+    /*  */
 }
 .btext .btext_content{
     position: relative;
@@ -189,9 +201,9 @@ side .headerimg a:first-child{
     opacity: 0.5;
 
     text-align: left;
-    /* top: -282px;
+    top: -282px;
 
-    */
+ /*    */
     left: -50px;
     z-index: -10;
     margin: 0px;
@@ -203,10 +215,22 @@ side .headerimg a:first-child{
     position: relative;
     margin: 0px;
     padding: 0px;
+    
+    
 
 }
+.reveal{
+    transform: translateY(150px);
+    opacity: 0;
+    transition: 2s all ease;
+}
+.reveal.active{
+    transform: translateY(0);
+    opacity: 1;
+  }
 .catag .c_img_bg{
-    
+    margin: 35px;
+    align-items: left;
     width: 230px;
     height: 230px;
     border-radius: 165px;
@@ -216,7 +240,7 @@ side .headerimg a:first-child{
     box-shadow: #000000;
     text-align: left;
     box-shadow: 5px 10px;
-
+    
     box-shadow: -0px 0px 2px 10px rgba(204, 202, 202, 0.49);
 -webkit-box-shadow: -0px 0px 2px 10px rgba(201, 195, 195, 0.49);
 -moz-box-shadow: -0px 0px 2px 10px rgba(196, 192, 192, 0.49);
@@ -225,6 +249,8 @@ side .headerimg a:first-child{
 }
 .catag .c_img_bg:hover{
     background-color: #e0690d;
+    transform: scale(1.1);
+    transition: 0.5s all ease-in-out
 }
 .catag img{
    

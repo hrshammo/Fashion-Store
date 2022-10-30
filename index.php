@@ -18,7 +18,10 @@
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-    <title>HRX | Home</title>
+    
+<script src="js/js_own.js"></script>
+
+<title>HRX | Home</title>
  </head>
  <body>
 <header>
@@ -114,6 +117,8 @@
                 <source src="video/hrx.mp4" type="video/mp4">
                 
                 
+
+
             </video>
       </div>
       <div class="btext">
@@ -128,12 +133,25 @@
       </div>
 </div>
       <h1 class=bg_write>COLLECTION</h1>
-<div class="catag">
+<div class="catag reveal">
   <div class="c_img_bg">
     <img src="img/men.png" alt="">
   </div>
-
-
+  <div class="c_img_bg">
+    <img src="img/woman.png" alt="">
+  </div>
+  <div class="c_img_bg">
+    <img class="bag_img" src="img/bag.png" alt="">
+  </div>
+  <div class="c_img_bg">
+    <img src="img/shoes.png" alt="">
+  </div>
+  <div class="c_img_bg">
+    <img src="img/watch.png" alt="">
+  </div>
+  <div class="c_img_bg">
+    <img src="img/sunglass1.png" alt="">
+  </div>
 
 </div>
 
