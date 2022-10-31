@@ -24,52 +24,138 @@
 
 <title>HRX | Men | Topwear</title>
  </head>
+ <body>
 <header>
+        <a href="../index.php">
+        <div class="logo"><img src="../../img/icon.png" alt="" srcset=""></div></a>
+    <div> <div class="uper"> <div class="dropdown">
+            <button class="dropbtn">Men</button>
+            <div class="dropdown-content">
+              <a href="Men/topware.php">Topwear</a>
+              <a href="#">Bottomwear</a>
+              <a href="#">Sports & Active wear</a>
+              <a href="#">Festive wear</a>
+           
+              <a href="#">Footwear</a>
+                 <a href="#">Accessories</a>
+            </div>
+          </div>
+          <div class="dropdown">
+            <button class="dropbtn">Woman</button>
+            <div class="dropdown-content">
+              <a href="#">Desi & Fusion wear</a>
+              <a href="#">Western wear</a>
+              <a href="#">Jewellery</a>
+              <a href="#">Sports & Active wear</a>
+                 <a href="#">Footwear</a>
+                 <a href="#">Accessories</a>
+            </div>
+          </div>
 
-</header>
-
-
-<body>
-    <h2 ><a href="../../index.php"> Home</a> <a href="../men.php">/ Men </a> / Topwear
-</h2>
-     <!-- Catagoris start -->
-     <div class="catag reveal">
-  <a href="page/men.php"> 
-  <div class="c_img_bg">
-    <img src="img/men.png" alt="">
-    <h3>Men</h3>
-   
-  </div></a>
-  <div class="c_img_bg">
-    <img src="img/woman.png" alt="">
-    <h3>Woman</h3>
-  </div>
-  <div class="c_img_bg">
-    <img class="bag_img" src="img/bag.png" alt="">
-    <h3>Bagpack</h3>  
-  </div>
-  <div class="c_img_bg">
-    <img src="img/shoes.png" alt="">
-    <h3>shoes</h3>
-  </div>
-  <div class="c_img_bg ">
-    <img  src="img/asscories.png" alt="">
-    <h3>Asscories</h3>
-  </div>
-  <div class="c_img_bg">
-    <img src="img/watch.png" alt="">
-    <h3>Wareable</h3>
-  </div>
-  <div class="c_img_bg">
-    <img src="img/sunglass1.png" alt="">
-    <h3>Sunglass</h3>
-  </div>
-  <div class="c_img_bg ">
-    <img class="fitness" src="img/fitness1.png" alt="">
-    <h3>Fitness</h3>
-  </div>
-  
+          <div class="dropdown">
+            <button class="dropbtn">Kid</button>
+            <div class="dropdown-content">
+              <a href="#">Boys Clothing</a>
+              <a href="#">Girls Clothing</a>
+              <a href="#">Boys Footwear</a>
+              <a href="#">Girls Foorwear</a>
+               <a href="#">Infants</a>
+               <a href="#">Kid Accessories</a>
+             
+            </div>
+          </div>
  
+          <div class="dropdown">
+            <button class="dropbtn">Beauty</button>
+            <div class="dropdown-content">
+              <a href="#">Makeup</a>
+              <a href="#">Skincare,Bath & Body</a>
+              <a href="#">Haircare</a>
+              <a href="#">Fragrances</a>
+               <a href="#">Men's Grooming</a>
+               <a href="#">Beauty Gift</a>
+             
+            </div>
+          </div>
+          <div class="dropdown">
+            <button class="dropbtn">Accessories</button>
+            <div class="dropdown-content">
+              <a href="#">Watch</a>
+              <a href="#">Sunglasses</a>
+              <a href="#">Belts</a>
+              <a href="#">Bath Accessories</a>
+               <a href="#">Others</a>
+               
+             
+            </div>
+          </div>
+
+        </div> </div>
+          <input class="search" type="search" name="" id="" placeholder="search for products, bands and more">
+
+<div class="uper side"> <div class="dropdown headerimg">
+    <a href="#">
+    <img src="../../img/profile.png" alt="" srcset="">
+    <p>Profile</p>
+   </a>
+  </div>
+ 
+  <div class="dropdown headerimg">
+    <a href="#">
+    <img src="../../img/cart.png" alt="" srcset="">
+    <p>Cart</p>
+   </a>
+  </div>
+  </div>
+</header>
+<div>
+  <h3 class="link_w"> <a href="../../index.php">Home /</a> <a href="../men.php">Men /</a> Topwear</h3>
+
+  <div class="ctag_u">
+              <a href="product.php"> <div class="c_img_bg_u ">
+                 <img class="ctag_img_u"  src="img/img.jpg" alt="">
+                 <h3>Casual Shirt - #269</h3>
+                </div></a>
+                
+    </div>
 </div>
-</body>
+
+
+
+
+
+
+
+
+<footer>
+  <div class="footermain">
+    <div class="app">
+        <h3>EXPERIENCE HRX APP ON MOBILE</h3>
+        <a href="#" >
+            <img src="../../img/google_play.png" alt="" srcset="">
+        </a><br>
+        <a href="#"> 
+            <img src="../../img/apple_store.png" alt="" srcset="">
+        </a>
+    </div>
+    <div class="aboutus">
+      <h3>ABOUT US</h3>
+      <p>
+        HRX is a major Bangladeshi fashion e-commerce company headquartered in Dhaka, Bangladesh. The company was founded in 2012 to sell personalized gift items. In May 2014, HRX began selling fashion and lifestyle products and moved away from personalisation. By 2018 HRX offered products from 350 Bangladeshi and International brands. 
+      </p>
+  </div>
+    <div class="social">
+            <h3>KEEP IN TOUCH
+            </h3>
+        <ul>
+            <li><a href="#"><img src="../../img/fb.png" alt="" srcset=""></a></li>
+            <li><a href="#"><img src="../../img/insta.png" alt="" srcset=""></a></li>
+            <li><a href="#"><img src="../../img/twitter.png" alt="" srcset=""></a></li>
+            <li><a href="#"><img src="../../img/link.png" alt="" srcset=""></a></li>
+       </ul>
+    </div>
+
+    </div>
+  </footer>
+ </body>
  </html>

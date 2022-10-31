@@ -325,16 +325,298 @@ footer{
 
  /*  CSS for men clothing  */
 
+ .headcls{
+  margin-top: 100px;
+ }
  .ctag_u{
     align-items: left;
     display: inline-block;
     width: 100%;
     position: relative;
+    margin-top: 100px;
 
+ }
+
+ .c_img_bg_u{
+    display: inline-block;
+    align-items: left;
+    align-content: left;
  }
  .ctag_u .ctag_img_u {
     width: 200px;
     display: inline-block;
     align-self: left;
+    border-radius: 20px;
+    margin: 20px;
 
  }
+ .ctag_u .ctag_img_u:hover{
+    transform: scale(1.1);
+    transition: 0.5s all ease-in-out;
+    box-shadow: -0px 0px 2px 10px rgba(204, 202, 202, 0.49) ;
+ }
+ /*  CSS for men topwere clothing  */
+ .link_w{
+    margin-top: 100px;
+    text-align: left;
+    margin-left: 58px;
+
+
+ }
+
+
+
+ /* CSS FOR PRODUCTS */
+ .image{
+   
+    width: 58%;
+    margin-left: 50px;
+
+   
+    float: left;
+}
+.image img{
+    z-index: 8;
+    margin-top: 2%;
+    width: 45%;
+    float: inherit;
+    margin-left: 2%;
+  -webkit-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+    overflow: hidden;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+.image img:hover{
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    -webkit-transform: scale(1.03);
+        transform: scale(1.03);
+        overflow: hidden;
+}
+.details{
+    float: right;
+    border-top: 1px solid #ff94c1;
+    z-index: 8;
+    top: 15px;
+    width: 33%;
+    background-color: #666c75
+    right: 4%;
+    text-align: initial;
+
+}
+.details h1{
+    float: ;
+   width: ;
+    font: initial;
+    font-size: 30px;
+    margin-bottom: 1%;
+}
+.detailsx{
+   color: #696665;
+    font-size: 16px;
+    font-family: initial;
+    margin-bottom: 1%;
+    
+}
+.rateing{
+    border-color: #666c75;
+    border-style: groove;
+    width: 40%;
+    height: 30px;
+    border-radius: 4px;
+    margin-bottom: 4%;
+    font-size: 14px;
+    font-family: inherit;
+    background-color: #99ffb68c;
+}
+.rateing i{
+    color: #696665;
+    
+}
+.detailsy{
+    border-top: 1px solid #ff94c1;
+   
+    text-align: initial;
+  
+    font-size: 30px;
+    
+}
+.detailsy del{
+    color: #696665;
+    font-size: 16px;
+}
+.detailsy .orange{
+    color: #ff9263;
+    display: inline;
+}
+/*radio tag css start*/
+
+.details label{
+    display: block;
+				text-align: center;
+				transition: all 0.15s ease-in-out;
+				background: #fff;
+				border-radius: 10px;
+				box-sizing: border-box;
+				width: 40px;
+				font-size: 30px;
+				cursor: pointer;
+}
+.details label:checked{
+    background-color: hotpink;
+    width: 70px;
+}
+.radio-toolbar {
+    margin: 10px;
+}
+.radio-toolbar input[type="radio"] {
+    opacity: 0;
+    position: fixed;
+    width: 0;
+}
+.radio-toolbar label {
+    display: inline-block;
+    background-color: #ffffff4f;
+    padding: 9px;
+    font-family: sans-serif, Arial;
+    font-size: 16px;
+    border: 2px solid #44444459;
+    width: 40px;
+    height: 40px;
+    text-align: center;
+    border-radius: 30px;
+    border-style: inset;
+}
+.radio-toolbar label:hover {
+    background-color: #dfd;
+}
+  
+.radio-toolbar input[type="radio"]:focus + label {
+      border: 2px inset #444;
+}
+  
+.radio-toolbar input[type="radio"]:checked + label {
+    background-color: #ffc4fc;
+    border-color: #ff57e3;
+}
+/*radio tag css finish */
+
+.details h3{
+    margin-top: 3%;
+    margin-bottom: 3%;
+   
+}
+.details h3 a{
+    color: #ff57e3;
+    text-decoration: none;
+}
+
+.addbagb{
+    width: 58%;
+     height: 53px;
+     font-size: 20px;
+     border-radius: 5px;
+    float: left;
+     margin-right: 10px;
+     background: rgb(242,141,250);
+ background: linear-gradient(90deg, rgba(242,141,250,0.7343312324929971) 0%, rgba(250,191,255,0.7063200280112045) 47%);
+ 
+ }
+ .addbagb:hover{
+     background: rgb(249,182,255);
+ background: linear-gradient(90deg, rgba(249,182,255,0.8883928571428571) 57%, rgba(241, 115, 250, 0.774) 100%);
+ }
+ .wishlistb{
+     width: 38%;
+     height: 53px;
+     border-radius: 5px;
+     font-size: 20px;
+     float: left;
+ }
+ .wishlistb:hover{
+     border: 1px  black;
+     border-style: groove;
+ }
+ .delivery h2{
+    margin-top: 71px;
+ }
+ .delivery .fristp{
+     font-size: 12px;
+ }
+ .delivery ul{
+     font-size: 17px;
+     float: left;
+     list-style: none;
+     text-align: initial;
+     margin-top: 20px;
+ }
+ .delivery .pin{
+    width: 66%;
+   height: 45px;
+     border-radius: 5px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+ }
+ .delivery button{
+    left: -22%;
+     border: 0;
+     background: none;
+     font-size: 17px;
+     color: #ff57e3;
+ }
+ .offers{
+     width: 400px;
+     float: left;
+     margin-top: 20px;
+ }
+ .offers h2{
+     margin-bottom: 10px;
+ }
+ .offers h3{
+     margin-bottom: 13px;
+ }
+ .offers .orange{
+     color:#ff9263;
+     display: inline;
+ }
+ .offers ul{
+     text-align: initial;
+     font-size: 17px;
+     left: 17px;
+ }
+ .offers ul li{
+     margin-top: 10px;
+ }
+ .offers .emi{
+     margin-top: 10px;
+  
+ }
+ .viewproducts{
+     
+ }
+ .viewplan{
+    
+ }
+ .productsdetails{
+    float: left;
+    width: 34%;
+    text-align: initial;
+    line-height: 20px;
+    margin-top: 30px;
+    margin-left: 58px;
+}
+.productsdetails h2, .productsdetails h3{
+    margin-top: 10px;
+}
+.productsdetails li{
+    list-style: none;
+    font-size: 17px;
+    margin-top: 10px;
+}
+
+.productsdetailsh2{
+    border-top:  1px solid #ff94c1;
+    padding-top: 30px;
+}
