@@ -20,3 +20,16 @@ function reveal() {
   window.addEventListener("scroll", reveal);
 
   // End of Animition Catlog #1
+
+  //Magic Mouse Js #2
+  options = {
+    "cursorOuter": "circle-basic",
+    "hoverEffect": "circle-move",
+    "hoverItemMove": false,
+    "defaultCursor": false,
+    "outerWidth": 30,
+    "outerHeight": 30
+  }
+  magicMouse(options);
+
+  //End of Magic Mouse js #2

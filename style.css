@@ -126,7 +126,7 @@ side .headerimg a:first-child{
 }
 .side{
     top: -19px;
-    left: 91%;
+    left: 97%;
 }
 .site .headerimg a {
     color: #000;
@@ -137,6 +137,7 @@ side .headerimg a:first-child{
     padding: 0px;
     width: 100%;
     height: 400px;
+   
 }
 .video video {
     
@@ -321,3 +322,19 @@ footer{
 .footermain h3{
     border-top:1px solid #ff94c1 ;
 }
+
+ /*  CSS for men clothing  */
+
+ .ctag_u{
+    align-items: left;
+    display: inline-block;
+    width: 100%;
+    position: relative;
+
+ }
+ .ctag_u .ctag_img_u {
+    width: 200px;
+    display: inline-block;
+    align-self: left;
+
+ }
