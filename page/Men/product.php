@@ -116,7 +116,7 @@
     </div>
 
 <!-- product details-->
-<div class="image">
+<div class="image ">
       <img class="none" src="img/img.jpg" data-thumb="" alt="" /> 
         <img class="none" src="img/img1.jpg" data-thumb="demo/images/up.jpg" alt="" title="" />
         <img src="img/img2.jpg" data-thumb="demo/images/walle.jpg" alt="" data-transition="slideInLeft" /> 

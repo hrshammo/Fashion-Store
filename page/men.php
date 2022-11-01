@@ -22,7 +22,7 @@
 <script type="text/javascript" src="https://res.cloudinary.com/veseylab/raw/upload/v1636192990/magicmouse/magic_mouse-1.2.1.cdn.min.js"></script>
 <script src="../js/js_own.js"></script>
 
-<title>HRX | Home</title>
+<title>HRX | Men</title>
  </head>
  <body>
 <header>
