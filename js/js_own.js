@@ -29,6 +29,7 @@ function reveal() {
     "defaultCursor": false,
     "outerWidth": 30,
     "outerHeight": 30
+    
   }
   magicMouse(options);
 

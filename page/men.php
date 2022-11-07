@@ -36,7 +36,7 @@
               <a href="#">Sports & Active wear</a>
               <a href="#">Festive wear</a>
            
-              <a href="#">Footwear</a>
+              <a href="new.php">Footwear</a>
                  <a href="#">Accessories</a>
             </div>
           </div>

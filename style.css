@@ -50,12 +50,35 @@ header{
     border-radius: 8px;
     background-color: black;
   }
+
+  
+.dropbtn2 {
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    left: 00;
+    top: -29px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    background-color: black;
+  }
+  .dropdown p{
+    top:-10px;
+  }
   /* The container <div> - needed to position the dropdown content */
 .dropdown {
     position: relative;
     display: inline-block;
     top: -18px; 
     right: 45%;
+ }
+ .dropdown2 {
+    position: relative;
+    display: inline-block;
+    top: -18px; 
+    left: 45%;
  }
      /* Dropdown Content (Hidden by Default) */
 .dropdown-content {
@@ -67,6 +90,18 @@ header{
      z-index: 1;
     border-radius: 10px;
     background: rgb(246,208,251);
+}
+.dropdown-content2 {
+    display: none;
+    position: absolute;
+    padding: 20px;
+    min-width: 300px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    top: 27px;
+    left: -40px;
+    z-index: 1;
+   border-radius: 10px;
+   background: rgb(246,208,251);
 }
   /* Links inside the dropdown */
   .dropdown-content a {
@@ -82,12 +117,24 @@ header{
     background: rgb(242,141,250);
     background: linear-gradient(90deg, rgba(242,141,250,0.9332107843137255) 0%, rgba(250,191,255,0.9248074229691877) 47%);
   }
+  .dropdown-content2 a:hover {
+    background: rgb(242,141,250);
+    background: linear-gradient(90deg, rgba(242,141,250,0.9332107843137255) 0%, rgba(250,191,255,0.9248074229691877) 47%);
+  }
   /* Show the dropdown menu on hover */
   .dropdown:hover .dropdown-content {
       display: block;
     }
+    .dropdown2:hover .dropdown-content2 {
+        display: block;
+      }
   /* Change the background color of the dropdown button when the dropdown content is shown */
   .dropdown:hover .dropbtn { 
+    background: rgb(246,208,251);
+    background: linear-gradient(90deg, rgba(246,208,251,1) 0%, rgba(221,149,224,1) 100%);
+    color: #000;
+} 
+.dropdown2:hover .dropbtn2 { 
     background: rgb(246,208,251);
     background: linear-gradient(90deg, rgba(246,208,251,1) 0%, rgba(221,149,224,1) 100%);
     color: #000;
@@ -117,7 +164,7 @@ header{
     margin-right: 60px;
     color: whitesmoke;
 }
-side .headerimg a:first-child{
+.side .headerimg a:first-child{
     margin-left: 60px;
 }
 .side .headerimg a img{
@@ -132,6 +179,14 @@ side .headerimg a:first-child{
     color: #000;
     margin-left: 10px;
 }
+
+.uper .dropdown .login{
+    width: 100px;
+    height: 30px;
+    font-size: 16px;
+    top: -10px;
+
+ }
 .bannner{
     margin: 0px;
     padding: 0px;
