@@ -76,42 +76,41 @@ echo ' <div class="alert alert-success alert-dismissible fade show" role="alert"
             <div class="card-body p-5">
               <h2 class="text-uppercase text-center mb-5">Create an account</h2>
 
-              <form action="/Fashion-Store/page/reg.php" method="POST">
+              <form action="/Fashion-Store/page/reg.php" method="post">
 
-                <div class="form-outline mb-4">
-                  <input type="text" id="name" name="name" class="form-control form-control-lg" />
-                  <label class="form-label" for="form3Example1cg">Your Name</label>
+                <div class="form-outline mb-3">
+                  <input type="text" id="name" placeholder="Your Name"  name="name" class="form-control form-control-lg" />
+
                 </div>
-                <div class="form-outline mb-4">
-                  <input type="text"  id="name" name="name" class="form-control form-control-lg" />
-                  <label class="form-label" for="form3Example1cg">User Name</label>
+                <div class="form-outline mb-3">
+                  <input type="text"  id="name" placeholder="User Name" name="name" class="form-control form-control-lg" />
+
                 </div>
                 
 
-                <div class="form-outline mb-4">
-                  <input type="password"  id="password" name="password" class="form-control form-control-lg" />
-                  <label class="form-label" for="form3Example4cg">Password</label>
+                <div class="form-outline mb-3">
+                  <input type="password" placeholder="Password"  id="password" name="password" class="form-control form-control-lg" />
                 </div>
 
-                <div class="form-outline mb-4">
-                  <input type="password" id="cpassword" name="cpassword" class="form-control form-control-lg" />
-                  <label class="form-label" for="form3Example4cdg">Repeat your password</label>
+                <div class="form-outline mb-3">
+                  <input type="password" placeholder="Repeat your password" id="cpassword" name="cpassword" class="form-control form-control-lg" />
+                  
                 </div>
-                <div class="form-outline mb-4">
-                  <input type="email"  id="email" name="email" class="form-control form-control-lg" />
-                  <label class="form-label" for="form3Example3cg">Your Email</label>
+                <div class="form-outline mb-3">
+                  <input type="email" placeholder="Your Email"  id="email" name="email" class="form-control form-control-lg" />
+  
                 </div>
-                <div class="form-outline mb-4">
-                  <input type="text"  id="address" name="address" class="form-control form-control-lg" />
-                  <label class="form-label" for="form3Example1cg">Your Address</label>
+                <div class="form-outline mb-3">
+                  <input type="text" placeholder="Your Address"  id="address" name="address" class="form-control form-control-lg" />
+      
                 </div>
-                <div class="form-outline mb-4">
-                  <input type="text"  id="address2" name="address2" class="form-control form-control-lg" />
-                  <label class="form-label" for="form3Example1cg">Your Secondary Address</label>
+                <div class="form-outline mb-3">
+                  <input type="text" placeholder="Your Secondary Address"  id="address2" name="address2" class="form-control form-control-lg" />
+                 
                 </div>
-                <div class="form-outline mb-4">
-                  <input type="number"  id="number" name="number" class="form-control form-control-lg" />
-                  <label class="form-label" for="form3Example1cg">Your Mobile Number</label>
+                <div class="form-outline mb-3">
+                  <input type="number" placeholder="Your Mobile Number"  id="number" name="number" class="form-control form-control-lg" />
+                 
                 </div>
                 <div class="form-check d-flex justify-content-center mb-5">
                   <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3cg" />
@@ -121,7 +120,7 @@ echo ' <div class="alert alert-success alert-dismissible fade show" role="alert"
                 </div>
 
                 <div class="d-flex justify-content-center">
-                  <button type="button"
+                  <button type="button" style="background: #f3c6f7;"
                     class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Register</button>
                 </div>
 
