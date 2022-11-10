@@ -1,4 +1,5 @@
 
+
 // Animiton on Scroll on Catalog  #1
 
 function reveal() {
@@ -34,3 +35,6 @@ function reveal() {
   magicMouse(options);
 
   //End of Magic Mouse js #2
+
+
+  //OTP send function #3

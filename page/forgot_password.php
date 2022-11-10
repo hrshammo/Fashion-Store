@@ -41,9 +41,9 @@ if(($password==$cpassword) && $exists==false){
 
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
-    
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script type="text/javascript" src="https://res.cloudinary.com/veseylab/raw/upload/v1636192990/magicmouse/magic_mouse-1.2.1.cdn.min.js"></script>
-<script src="js/js_own.js"></script>
+<script src="../js/js_own.js"></script>
 
 <title>HRX | Forgot Password</title>
  </head>
@@ -77,19 +77,19 @@ echo ' <div class="alert alert-success alert-dismissible fade show" role="alert"
               
 
                 <!-- Forgot Password -->
-<div>   <!-- Div for hide and seak -->
+<div class="otp_send_form">   <!-- Div for hide and seak -->
                 <h2 class="text-uppercase text-center mb-5">Forgot Password</h2>
               <form action="/Fashion-Store/page/reg.php" method="post">
                 <div class="form-outline mb-5">
-                  <input type="number" placeholder="Enter Your Email"  id="email" name="email" class="form-control form-control-lg" />
+                  <input type="email" id="email" name="email" placeholder="Enter Your Email"  id="email" name="email" class="form-control form-control-lg" />
                 </div>             
                   <div class="d-flex justify-content-center">
-                  <button type="button" style="background: #f3c6f7;"
+                  <button type="button" style="background: #f3c6f7;" onclick="send_otp()"
                     class="btn btn-success btn-block btn-lg gradient-custom-4 text-body">Send OTP</button>
                 </div>
               </form></div>
 
-              <div>   <!-- Div for hide and seak -->
+              <div class="otp_submit_form">   <!-- Div for hide and seak -->
               <h2 class="text-uppercase text-center mb-5">OTP</h2>
                  <!-- OTP send code-->
               <form action="/Fashion-Store/page/reg.php" method="post">
@@ -103,7 +103,7 @@ echo ' <div class="alert alert-success alert-dismissible fade show" role="alert"
               </form>
 </div>
                         
-              <div>   <!-- Div for hide and seak -->
+              <div class="reset_pass_form">   <!-- Div for hide and seak -->
               <h2 class="text-uppercase text-center mb-5">Reset Password</h2>
                  <!-- OTP send code-->
               <form action="/Fashion-Store/page/reg.php" method="post">
@@ -121,7 +121,42 @@ echo ' <div class="alert alert-success alert-dismissible fade show" role="alert"
               </form>
 </div>
 
+<script>
+  //OTP send function #3
+function send_otp(){
+    var email=jQuery('#email').val();
+    jQuery.ajax({
+      url:'../backend/send_otp.php',
+      type:'post',
+      data:'email='+email,
+      success:function(result){
+        if(result=='yes'){
+          jQuery('.otp_send_form').hide();
+          jQuery('.otp_submit_form').show();
+        }
+      }
+    })
+}
 
+function submit_otp(){
+	var otp=jQuery('#otp').val();
+	jQuery.ajax({
+		url:'../backend/check_otp.php',
+		type:'post',
+		data:'otp='+otp,
+		success:function(result){
+			if(result=='yes'){
+        jQuery('.otp_send_form').hide();
+          jQuery('.otp_submit_form').hide();
+          jQuery('.reset_pass_form').show();
+			}
+			if(result=='not_exist'){
+				jQuery('#otp_error').html('Please enter valid otp');
+			}
+		}
+	});
+}
+  </script>
 
             </div>
           </div>
