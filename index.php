@@ -125,7 +125,7 @@ include 'db/connect.php';
 
             <div class="col">
 
-              <a href="#!">Forgot password?</a>
+              <a href="page/forgot_password.php">Forgot password?</a>
             </div>
           </div>
 
