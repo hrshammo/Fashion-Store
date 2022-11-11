@@ -1,4 +1,5 @@
 <?php
+// include('../db/connect.php');
 // getting ip address
 function getIPAddress()
 {
@@ -15,4 +16,32 @@ function getIPAddress()
       $ip = $_SERVER['REMOTE_ADDR'];
    }
    return $ip;
+}
+
+
+//getting all products
+function getAllProducts()
+{
+   $conn = mysqli_connect('localhost', 'root', '', 'eco_admin');
+   $sql = "select * from product";
+   $res = mysqli_query($conn, $sql);
+   if ($res) {
+      while ($row = mysqli_fetch_array($res)) {
+         $product_image = $row['p_img1'];
+         $product_name = $row['p_name'];
+         $product_price = $row['p_price'];
+
+         echo '<div class="ctag_u">
+         <a href="product.php">
+           <div class="c_img_bg_u ">
+             <img class="ctag_img_u" src="img/' . $product_image . '" alt="">
+             <h3>' . $product_name . '</h3>
+             <h4>৳.' . $product_price . '</h4>
+         </a>
+         <button class="add_to_cart"> Add to Cart </button>
+       </div>';
+      }
+   } else {
+      die(mysqli_error($conn));
+   }
 }
