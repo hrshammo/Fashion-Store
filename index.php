@@ -5,6 +5,7 @@ if (isset($_SESSION['uid'])) {
 }
 include 'db/connect.php';
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -298,9 +299,6 @@ include 'db/connect.php';
 
 
   </div>
-
-
-
 
 
 
