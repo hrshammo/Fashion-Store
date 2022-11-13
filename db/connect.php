@@ -1,4 +1,6 @@
 <?php
+define("CURRENCY", "৳");
+
 $server = "localhost";
 $username = "root";
 $password = "";
