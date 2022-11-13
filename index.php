@@ -98,7 +98,7 @@ include 'db/connect.php';
         </form>
       </div>
     </div>
-    <input class="search" type="search" name="" id="" placeholder="search for products, bands and more">
+    <form action="page/Men/search_products.php" method="post"><input class="search" type="search" name="search_key" id="" placeholder="search for products, bands and more"></form>
     <div class="dropdown2">
       <button class="dropbtn2">Login</button>
       <div class="dropdown-content2">
