@@ -99,7 +99,7 @@ if (isset($_SESSION['uid'])) {
 
       </div>
     </div>
-    <input class="search" type="search" name="" id="" placeholder="search for products, bands and more">
+    <form action="search_products.php" method="post"><input class="search" type="search" name="search_key" id="" placeholder="search for products, bands and more"></form>
 
     <div class="uper side">
       <div class="dropdown headerimg">
@@ -128,7 +128,8 @@ if (isset($_SESSION['uid'])) {
 
       <!-- call product function to display all products -->
       <?php
-      getAllProducts();
+      // getAllProducts();
+      getProductsByCategory();
       ?>
       <!-- <div class="ctag_u">
         <a href="product.php">
