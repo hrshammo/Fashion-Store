@@ -38,7 +38,7 @@ if (isset($_SESSION['uid'])) {
                 <div class="dropdown">
                     <button class="dropbtn">Men</button>
                     <div class="dropdown-content">
-                        <a href="Men/topware.php">Topwear</a>
+                        <a href="Men/products.php">Topwear</a>
                         <a href="#">Bottomwear</a>
                         <a href="#">Sports & Active wear</a>
                         <a href="#">Festive wear</a>
