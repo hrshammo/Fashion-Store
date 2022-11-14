@@ -8,7 +8,7 @@ https://hrshammo.github.io/Fashion-Store/
 ## Contributors 
 Thanks to these wonderful people ✨
 
-<a align="center" href="https://github.com/hrshammo/Fashion-Store/graphs/contributors">
+<a align="center" href="https://github.com/hrshammo/Fashion-Stor/graphs/contributors">
   <img src="https://contrib.rocks/image?repo=hrshammo/Fashion-Store&&max=817" />
 </a>
 
