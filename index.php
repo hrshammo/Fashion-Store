@@ -252,6 +252,56 @@ include 'db/connect.php';
   </div>
   <h1 class=bg_write>COLLECTION</h1>
 
+<div class="index_pro_show">
+
+<div class="p_show">
+    <div class="ctag_u">
+      <a href="product_details.php">
+        <div class="c_img_bg_u ">
+          <img class="ctag_img_u" src="page/Men/img/img.jpg" alt="">
+          <h3>product name </h3>
+          <h4>Price</h4>
+      </a>
+      <button class="add_to_cart"> Add to Cart </button>
+    </div>
+    <div class="ctag_u">
+      <a href="product_details.php">
+        <div class="c_img_bg_u ">
+          <img class="ctag_img_u" src="page/Men/img/img.jpg" alt="">
+          <h3>product name </h3>
+          <h4>Price</h4>
+      </a>
+      <button class="add_to_cart"> Add to Cart </button>
+    </div>
+    <div class="ctag_u">
+      <a href="product_details.php">
+        <div class="c_img_bg_u ">
+          <img class="ctag_img_u" src="page/Men/img/img.jpg" alt="">
+          <h3>product name </h3>
+          <h4>Price</h4>
+      </a>
+      <button class="add_to_cart"> Add to Cart </button>
+    </div>
+    <div class="ctag_u">
+      <a href="product_details.php">
+        <div class="c_img_bg_u ">
+          <img class="ctag_img_u" src="page/Men/img/img1.jpg" alt="">
+<h3>product name </h3>
+          <h4>Price</h4>
+      </a>
+      <button class="add_to_cart"> Add to Cart </button>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
   <div class="deal_of_the_day">
     <h1>DEAL OF THE DAY</h1>
 

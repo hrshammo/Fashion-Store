@@ -721,3 +721,15 @@ font-size: 16px;
 .reset_pass_form{
     display: none;
 }
+
+
+/*CSS FOR Index file some prodyct show */
+.index_pro_show{
+    top: -330px;
+    margin-bottom: 30px;
+
+}
+
+.deal_of_the_day{
+    margin-top: 50px;
+}
