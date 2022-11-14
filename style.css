@@ -340,7 +340,8 @@ footer{
     float: left;
     color: whitesmoke;
     text-align: initial;
-	margin-top: 70px;
+	margin-top: 0px;
+	    top: 330px;
 }
 .footermain{
     width: 500px;
