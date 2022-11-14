@@ -100,8 +100,9 @@ include 'db/connect.php';
     </div>
     <form action="page/Men/search_products.php" method="post"><input class="search" type="search" name="search_key" id="" placeholder="search for products, bands and more"></form>
     <div class="dropdown2">
-      <button class="dropbtn2">Login</button>
-      <div class="dropdown-content2">
+      <button type="submit" class="dropbtn2" onclick="loginpage()">Login</button>
+
+      <div class="dropdown-content2" style="display:none" id="LoginForm">
 
         <form action="backend/user_login.php" method="post">
           <div class="form-outline mb-4">
@@ -158,75 +159,18 @@ include 'db/connect.php';
 
       </div>
     </div>
-    <!-- 
-<div class="uper side"> 
-  <div class="dropdown dlogin">
-            <button class="dropbtn blogin" top="-9px">Login </button>
-                      <form>
-            
-            <div class="form-outline mb-4">
-              <input type="email" id="form2Example1" class="form-control" />
-              <label class="form-label" for="form2Example1">Email address</label>
-            </div>
 
-            
-            <div class="form-outline mb-4">
-              <input type="password" id="form2Example2" class="form-control" />
-              <label class="form-label" for="form2Example2">Password</label>
-            </div>
+    <script>
+      function loginpage() {
+        var x = document.getElementById("LoginForm");
+        if (x.style.display === "none") {
+          x.style.display = "block";
+        } else {
+          x.style.display = "none";
+        }
+      }
+    </script>
 
-            
-            <div class="row mb-4">
-              <div class="col d-flex justify-content-center">
-               
-                <div class="form-check">
-                  <input class="form-check-input" type="checkbox" value="" id="form2Example31" checked />
-                  <label class="form-check-label" for="form2Example31"> Remember me </label>
-                </div>
-              </div>
-
-              <div class="col">
-                
-                <a href="#!">Forgot password?</a>
-              </div>
-            </div>
-
-           
-            <button type="button" class="btn btn-primary btn-block mb-4">Sign in</button>
-
-           
-            <div class="text-center">
-              <p>Not a member? <a href="#!">Register</a></p>
-              <p>or sign up with:</p>
-              <button type="button" class="btn btn-link btn-floating mx-1">
-                <i class="fab fa-facebook-f"></i>
-              </button>
-
-              <button type="button" class="btn btn-link btn-floating mx-1">
-                <i class="fab fa-google"></i>
-              </button>
-
-              <button type="button" class="btn btn-link btn-floating mx-1">
-                <i class="fab fa-twitter"></i>
-              </button>
-
-              <button type="button" class="btn btn-link btn-floating mx-1">
-                <i class="fab fa-github"></i>
-              </button>
-            </div>
-          </form>
-             
-               
-             
-            </div>
-          </div> -->
-    <!--...
-  <div class="dropdown headerimg">
-    <a href="#">
-    <img src="img/cart.png" alt="" srcset="">
-    <p>Cart</p>
-   </a>
-  </div> -->
     </div>
   </header>
   <div class="banner">
@@ -252,48 +196,73 @@ include 'db/connect.php';
   </div>
   <h1 class=bg_write>COLLECTION</h1>
 
-<div class="index_pro_show">
+  <div class="index_pro_show">
+    <h2>Latest Products</h2>
+    <div class="p_show">
+      <?php
+      $sql = "select * from product sort order by p_date desc limit 4";
+      $res = mysqli_query($conn, $sql);
+      if ($res) {
+        while ($row = mysqli_fetch_array($res)) {
+          $p_id = $row["p_id"];
+          $p_name = $row["p_name"];
+          $p_price = $row["p_price"];
+          $p_img = $row["p_img1"];
 
-<div class="p_show">
-    <div class="ctag_u">
-      <a href="product_details.php">
-        <div class="c_img_bg_u ">
-          <img class="ctag_img_u" src="page/Men/img/img.jpg" alt="">
-          <h3>product name </h3>
-          <h4>Price</h4>
-      </a>
-      <button class="add_to_cart"> Add to Cart </button>
+          echo '<div class="ctag_u">
+          <a href="product_details.php">
+            <div class="c_img_bg_u ">
+              <img class="ctag_img_u" src="page/Men/img/' . $p_img . '" alt="">
+              <h3>' . $p_name . '</h3>
+              <h4>' . CURRENCY . $p_price . '</h4>
+          </a>
+          <button class="add_to_cart"> Add to Cart </button>
+        </div>';
+        }
+      } else {
+        die(mysqli_error($conn));
+      }
+      ?>
+
+      <!-- <div class="ctag_u">
+        <a href="product_details.php">
+          <div class="c_img_bg_u ">
+            <img class="ctag_img_u" src="page/Men/img/img.jpg" alt="">
+            <h3>product name </h3>
+            <h4>Price</h4>
+        </a>
+        <button class="add_to_cart"> Add to Cart </button>
+      </div>
+      <div class="ctag_u">
+        <a href="product_details.php">
+          <div class="c_img_bg_u ">
+            <img class="ctag_img_u" src="page/Men/img/img.jpg" alt="">
+            <h3>product name </h3>
+            <h4>Price</h4>
+        </a>
+        <button class="add_to_cart"> Add to Cart </button>
+      </div>
+      <div class="ctag_u">
+        <a href="product_details.php">
+          <div class="c_img_bg_u ">
+            <img class="ctag_img_u" src="page/Men/img/img.jpg" alt="">
+            <h3>product name </h3>
+            <h4>Price</h4>
+        </a>
+        <button class="add_to_cart"> Add to Cart </button>
+      </div>
+      <div class="ctag_u">
+        <a href="product_details.php">
+          <div class="c_img_bg_u ">
+            <img class="ctag_img_u" src="page/Men/img/img1.jpg" alt="">
+            <h3>product name </h3>
+            <h4>Price</h4>
+        </a>
+        <button class="add_to_cart"> Add to Cart </button>
+      </div> -->
     </div>
-    <div class="ctag_u">
-      <a href="product_details.php">
-        <div class="c_img_bg_u ">
-          <img class="ctag_img_u" src="page/Men/img/img.jpg" alt="">
-          <h3>product name </h3>
-          <h4>Price</h4>
-      </a>
-      <button class="add_to_cart"> Add to Cart </button>
-    </div>
-    <div class="ctag_u">
-      <a href="product_details.php">
-        <div class="c_img_bg_u ">
-          <img class="ctag_img_u" src="page/Men/img/img.jpg" alt="">
-          <h3>product name </h3>
-          <h4>Price</h4>
-      </a>
-      <button class="add_to_cart"> Add to Cart </button>
-    </div>
-    <div class="ctag_u">
-      <a href="product_details.php">
-        <div class="c_img_bg_u ">
-          <img class="ctag_img_u" src="page/Men/img/img1.jpg" alt="">
-<h3>product name </h3>
-          <h4>Price</h4>
-      </a>
-      <button class="add_to_cart"> Add to Cart </button>
-    </div>
+
   </div>
-
-</div>
 
 
 
@@ -363,7 +332,7 @@ include 'db/connect.php';
 
 
   <!-- Footer File call -->
-<?php 
+  <?php
   include 'footer.php';
   ?>
 </body>

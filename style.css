@@ -412,6 +412,8 @@ footer{
  }
  .ctag_u .ctag_img_u {
     width: 200px;
+    height: 250px;
+    object-fit: cover;
     display: inline-block;
     align-self: left;
     border-radius: 20px;
@@ -469,6 +471,8 @@ font-size: 16px;
     z-index: 8;
     margin-top: 2%;
     width: 45%;
+    height: 380px;
+    object-fit: cover;
     float: inherit;
     margin-left: 2%;
   -webkit-transform: scale(1);
@@ -730,7 +734,10 @@ font-size: 16px;
     margin-bottom: 30px;
 
 }
-
+.index_pro_show h2{
+    margin-top: -60px;
+    text-transform: uppercase;
+}
 .deal_of_the_day{
     margin-top: 50px;
 }
