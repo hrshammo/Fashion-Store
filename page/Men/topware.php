@@ -128,7 +128,8 @@ if (isset($_SESSION['uid'])) {
 
       <!-- call product function to display all products -->
       <?php
-      getAllProducts();
+      // getAllProducts();
+      getProductsByCategory();
       ?>
       <!-- <div class="ctag_u">
         <a href="product.php">

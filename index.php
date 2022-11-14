@@ -37,22 +37,22 @@ include 'db/connect.php';
           <div class="dropdown">
             <button class="dropbtn">Men</button>
             <div class="dropdown-content">
-              <a href="page/Men/topware.php?ctg=Topwear" name="ctg">Topwear</a>
-              <a href="page/Men/topware.php?ctg=Sports and Active wear" name="ctg">Sports and Active wear</a>
-              <a href="page/Men/topware.php?ctg=Bottomwear" name="ctg">Bottomwear</a>
-              <a href="page/Men/topware.php?ctg=Festive wear" name="ctg">Festive wear</a>
+              <a href="page/Men/topware.php?ctg=Men/Topwear" name="ctg">Topwear</a>
+              <a href="page/Men/topware.php?ctg=Men/Sports and Active wear" name="ctg">Sports and Active wear</a>
+              <a href="page/Men/topware.php?ctg=Men/Bottomwear" name="ctg">Bottomwear</a>
+              <a href="page/Men/topware.php?ctg=Men/Festive wear" name="ctg">Festive wear</a>
 
-              <a href="page/Men/topware.php?ctg=Footwear" name="ctg">Footwear</a>
-              <a href="page/Men/topware.php?ctg=Accessories" name="ctg">Accessories</a>
+              <a href="page/Men/topware.php?ctg=Men/Footwear" name="ctg">Footwear</a>
+              <a href="page/Men/topware.php?ctg=Men/Accessories" name="ctg">Accessories</a>
             </div>
           </div>
           <div class="dropdown">
             <button class="dropbtn">Woman</button>
             <div class="dropdown-content">
-              <a href="#">Desi & Fusion wear</a>
+              <a href="page/Men/topware.php?ctg=Woman/Desi and Fusion wear">Desi and Fusion wear</a>
               <a href="#">Western wear</a>
               <a href="#">Jewellery</a>
-              <a href="#">Sports & Active wear</a>
+              <a href="#">Sports and Active wear</a>
               <a href="#">Footwear</a>
               <a href="#">Accessories</a>
             </div>
@@ -75,7 +75,7 @@ include 'db/connect.php';
             <button class="dropbtn">Beauty</button>
             <div class="dropdown-content">
               <a href="#">Makeup</a>
-              <a href="#">Skincare,Bath & Body</a>
+              <a href="#">Skincare,Bath and Body</a>
               <a href="#">Haircare</a>
               <a href="#">Fragrances</a>
               <a href="#">Men's Grooming</a>
