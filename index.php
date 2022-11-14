@@ -37,19 +37,19 @@ include 'db/connect.php';
           <div class="dropdown">
             <button class="dropbtn">Men</button>
             <div class="dropdown-content">
-              <a href="page/Men/products.php?ctg=Men/Topwear" name="ctg">Topwear</a>
-              <a href="page/Men/products.php?ctg=Men/Sports and Active wear" name="ctg">Sports and Active wear</a>
-              <a href="page/Men/products.php?ctg=Men/Bottomwear" name="ctg">Bottomwear</a>
-              <a href="page/Men/products.php?ctg=Men/Festive wear" name="ctg">Festive wear</a>
+              <a href="page/Men/topware.php?ctg=Men/Topwear" name="ctg">Topwear</a>
+              <a href="page/Men/topware.php?ctg=Men/Sports and Active wear" name="ctg">Sports and Active wear</a>
+              <a href="page/Men/topware.php?ctg=Men/Bottomwear" name="ctg">Bottomwear</a>
+              <a href="page/Men/topware.php?ctg=Men/Festive wear" name="ctg">Festive wear</a>
 
-              <a href="page/Men/products.php?ctg=Men/Footwear" name="ctg">Footwear</a>
-              <a href="page/Men/products.php?ctg=Men/Accessories" name="ctg">Accessories</a>
+              <a href="page/Men/topware.php?ctg=Men/Footwear" name="ctg">Footwear</a>
+              <a href="page/Men/topware.php?ctg=Men/Accessories" name="ctg">Accessories</a>
             </div>
           </div>
           <div class="dropdown">
             <button class="dropbtn">Woman</button>
             <div class="dropdown-content">
-              <a href="page/Men/products.php?ctg=Woman/Desi and Fusion wear">Desi and Fusion wear</a>
+              <a href="page/Men/topware.php?ctg=Woman/Desi and Fusion wear">Desi and Fusion wear</a>
               <a href="#">Western wear</a>
               <a href="#">Jewellery</a>
               <a href="#">Sports and Active wear</a>
@@ -312,37 +312,10 @@ include 'db/connect.php';
 
 
 
-
-  <footer>
-    <div class="footermain">
-      <div class="app">
-        <h3>EXPERIENCE HRX APP ON MOBILE</h3>
-        <a href="#">
-          <img src="img/google_play.png" alt="" srcset="">
-        </a><br>
-        <a href="#">
-          <img src="img/apple_store.png" alt="" srcset="">
-        </a>
-      </div>
-      <div class="aboutus">
-        <h3>ABOUT US</h3>
-        <p>
-          HRX is a major Bangladeshi fashion e-commerce company headquartered in Dhaka, Bangladesh. The company was founded in 2012 to sell personalized gift items. In May 2014, HRX began selling fashion and lifestyle products and moved away from personalisation. By 2018 HRX offered products from 350 Bangladeshi and International brands.
-        </p>
-      </div>
-      <div class="social">
-        <h3>KEEP IN TOUCH
-        </h3>
-        <ul>
-          <li><a href="#"><img src="img/fb.png" alt="" srcset=""></a></li>
-          <li><a href="#"><img src="img/insta.png" alt="" srcset=""></a></li>
-          <li><a href="#"><img src="img/twitter.png" alt="" srcset=""></a></li>
-          <li><a href="#"><img src="img/link.png" alt="" srcset=""></a></li>
-        </ul>
-      </div>
-
-    </div>
-  </footer>
+  <!-- Footer File call -->
+<?php 
+  include 'footer.php';
+  ?>
 </body>
 
 </html>
