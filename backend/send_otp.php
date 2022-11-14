@@ -23,13 +23,13 @@ function smtp_mailer($to,$subject, $msg){
 	$mail->SMTPDebug = 1; 
 	$mail->SMTPAuth = true; 
 	$mail->SMTPSecure = 'TLS'; 
-	$mail->Host = "smtp.gmail.com";
+	$mail->Host = "smtp.sendgrid.net";
 	$mail->Port = 587; 
 	$mail->IsHTML(true);
 	$mail->CharSet = 'UTF-8';
-	$mail->Username = "matrimonysystem@gmail.com";
-	$mail->Password = "Loveu_Baby";
-	$mail->SetFrom("matrimonysystem@gmail.com");
+	$mail->Username = "19202103269@cse.bubt.edu.bd";
+	$mail->Password = "thenameis_SHAMMO";
+	$mail->SetFrom("19202103269@cse.bubt.edu.bd");
 	$mail->Subject = $subject;
 	$mail->Body =$msg;
 	$mail->AddAddress($to);
