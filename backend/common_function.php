@@ -32,7 +32,7 @@ function getAllProducts()
          $product_price = $row['p_price'];
 
          echo '<form class="ctag_u" action="#" method="get"><div class="ctag_u">
-         <a href="product.php?id=' . $product_id . '">
+         <a href="product_details.php?id=' . $product_id . '">
            <div class="c_img_bg_u ">
              <img class="ctag_img_u" src="img/' . $product_image . '" alt="">
              <h3>' . $product_name . '</h3>
@@ -63,7 +63,7 @@ function getSearchedProducts()
             $product_price = $row['p_price'];
 
             echo '<form class="ctag_u" action="#" method="get"><div class="ctag_u">
-         <a href="product.php?id=' . $product_id . '">
+         <a href="product_details.php?id=' . $product_id . '">
            <div class="c_img_bg_u ">
              <img class="ctag_img_u" src="img/' . $product_image . '" alt="">
              <h3>' . $product_name . '</h3>
@@ -98,7 +98,7 @@ function getProductsByCategory()
             $product_price = $row['p_price'];
 
             echo '<form class="ctag_u" action="#" method="get"><div class="ctag_u">
-         <a href="product.php?id=' . $product_id . '">
+         <a href="product_details.php?id=' . $product_id . '">
            <div class="c_img_bg_u ">
              <img class="ctag_img_u" src="img/' . $product_image . '" alt="">
              <h3>' . $product_name . '</h3>

@@ -36,7 +36,7 @@ if (isset($_SESSION['uid'])) {
         <div class="dropdown">
           <button class="dropbtn">Men</button>
           <div class="dropdown-content">
-            <a href="Men/topware.php">Topwear</a>
+            <a href="Men/products.php">Topwear</a>
             <a href="#">Bottomwear</a>
             <a href="#">Sports & Active wear</a>
             <a href="#">Festive wear</a>
@@ -119,7 +119,7 @@ if (isset($_SESSION['uid'])) {
   <div>
     <h1 class="headcls">CLOTHING FOR MEN</h1>
     <div class="ctag_u">
-      <a href="Men/topware.php">
+      <a href="Men/products.php">
         <div class="c_img_bg_u ">
           <img class="ctag_img_u" src="../img/men/topware.jpg" alt="">
           <h3>Topwear</h3>
