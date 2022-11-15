@@ -29,7 +29,15 @@ if (isset($_SESSION['uid'])) {
 </head>
 
 <body>
-  <header>
+  <!-- Will Show when user don't login -->
+<?php
+include '../../before_login.php';
+?>
+
+  <!-- Will Show when user  login -->
+  <?php
+include '../../after_login.php';
+?>
     <a href="../index.php">
       <div class="logo"><img src="../../img/icon.png" alt="" srcset=""></div>
     </a>
