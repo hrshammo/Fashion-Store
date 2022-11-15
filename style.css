@@ -182,6 +182,31 @@ header{
     margin-left: 10px;
 }
 
+.side2 {
+    top: -76px;
+    left: 87%;
+}
+
+.side2 .headerimg a{
+    text-decoration: none;
+    margin-right: 60px;
+    color: whitesmoke;
+}
+.side2 .headerimg a:first-child{
+    margin-left: 70px;
+}
+.side2 .headerimg a img{
+    width: 20px;
+    height: auto;
+}
+.site2 .headerimg a {
+    color: #000;
+    margin-left: 10px;
+}
+.uper sup{
+    font-size: 16px;
+}
+
 .uper .dropdown .login{
     width: 100px;
     height: 30px;
