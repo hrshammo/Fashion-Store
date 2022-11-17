@@ -1,8 +1,5 @@
 <?php
 session_start();
-if (isset($_SESSION['uid'])) {
-  header('location:profile.php');
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,19 +24,17 @@ if (isset($_SESSION['uid'])) {
 </head>
 
 <body>
-  <!-- Will Show when user don't login -->
-<?php
-include '../before_login.php';
-?>
-
-  <!-- Will Show when user  login -->
   <?php
-include '../after_login.php';
-?>
+  if (isset($_SESSION['username'])) {
+    include '../after_login.php';
+  } else {
+    include '../before_login.php';
+  }
+  ?>
   <div>
     <h1 class="headcls">CLOTHING FOR MEN</h1>
     <div class="ctag_u">
-      <a href="Men/topware.php">
+      <a href="Men/topware.php?ctg=Men/Topwear">
         <div class="c_img_bg_u ">
           <img class="ctag_img_u" src="../img/men/topware.jpg" alt="">
           <h3>Topwear</h3>
@@ -66,8 +61,8 @@ include '../after_login.php';
 
 
 
- <!-- Footer File call -->
- <?php 
+  <!-- Footer File call -->
+  <?php
   include '../footer.php';
   ?>
 </body>

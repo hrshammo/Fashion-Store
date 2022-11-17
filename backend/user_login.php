@@ -1,4 +1,5 @@
 <?php
+session_start();
 include('../db/connect.php');
 
 if (isset($_POST['login'])) {
@@ -12,6 +13,7 @@ if (isset($_POST['login'])) {
     $check_pass = password_verify($password, $encrypt_pass);
 
     if ($check_pass) {
+        $_SESSION['username'] = $username;
         echo "<script>window.open('../profile.php','_self')</script>";
     } else {
         echo "<script>alert('Login Failed..\nInvalid Password!')</script>";
