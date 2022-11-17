@@ -1,8 +1,5 @@
 <?php
 session_start();
-if (isset($_SESSION['uid'])) {
-  header('location:index.php');
-}
 include 'db/connect.php';
 ?>
 <!DOCTYPE html>
@@ -28,16 +25,13 @@ include 'db/connect.php';
 </head>
 
 <body>
-
-  <!-- Will Show when user don't login -->
-<?php
-include 'before_login.php';
-?>
-
-  <!-- Will Show when user  login -->
   <?php
-include 'after_login.php';
-?>
+  if (isset($_SESSION['username'])) {
+    include 'after_login.php';
+  } else {
+    include 'before_login.php';
+  }
+  ?>
 
   <div class="banner">
     <div class="video">
@@ -125,8 +119,8 @@ include 'after_login.php';
 
 
 
- <!-- Footer File call -->
- <?php 
+  <!-- Footer File call -->
+  <?php
   include 'footer.php';
   ?>
 </body>

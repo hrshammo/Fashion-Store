@@ -1,4 +1,5 @@
 <?php
+session_start();
 include('../db/connect.php');
 include('common_function.php');
 
@@ -21,6 +22,7 @@ if (isset($_POST['Register'])) {
     $sql = "insert into user_info (name,username,user_email,user_password,user_ip,user_address,user_address2,user_mobile) values('$name','$username','$email','$encrypt_pass','$ip','$address','$address2','$number')";
     $res = mysqli_query($conn, $sql);
     if ($res) {
+        $_SESSION['username'] = $username;
         echo "<script>alert('Registration Successful')</script>";
         echo "<script>window.open('../profile.php','_self')</script>";
     } else {

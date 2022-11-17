@@ -1,8 +1,5 @@
 <?php
 session_start();
-if (isset($_SESSION['uid'])) {
-  header('location:profile.php');
-}
 include 'db/connect.php';
 ?>
 
@@ -29,16 +26,18 @@ include 'db/connect.php';
 </head>
 
 <body>
-  
+  <?php
+  if (isset($_SESSION['username'])) {
+    include 'after_login.php';
+  } else {
+    include 'before_login.php';
+  }
+  ?>
   <!-- Will Show when user don't login -->
-<?php
-include 'before_login.php';
-?>
+
 
   <!-- Will Show when user  login -->
-  <?php
-include 'after_login.php';
-?>
+
   <div class="banner">
     <div class="video">
       <video autoplay="autoplay" width="100%" loop="loop" muted="muted" class="w-full object-cover banner-h350px mtz-cfejh">
