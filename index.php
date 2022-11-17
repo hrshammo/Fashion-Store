@@ -1,6 +1,7 @@
 <?php
 session_start();
 include 'db/connect.php';
+// include 'backend/common_function.php';
 ?>
 
 <!DOCTYPE html>
@@ -81,7 +82,7 @@ include 'db/connect.php';
               <h3>' . $p_name . '</h3>
               <h4>' . CURRENCY . $p_price . '</h4>
           </a>
-          <button class="add_to_cart"> Add to Cart </button>
+          <a href="add_to_cart.php?add_to_cart=' . $p_id . '"><button class="add_to_cart"> Add to Cart </button></a>
         </div>';
         }
       } else {
@@ -116,6 +117,7 @@ include 'db/connect.php';
         </a>
         <button class="add_to_cart"> Add to Cart </button>
       </div>
+
       <div class="ctag_u">
         <a href="product_details.php">
           <div class="c_img_bg_u ">

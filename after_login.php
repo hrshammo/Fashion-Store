@@ -1,3 +1,9 @@
+<?php
+$ip = getIPAddress();
+$sql = "select * from cart_details where ip_address = '$ip'";
+$res = mysqli_query($conn, $sql);
+$row_count = mysqli_num_rows($res);
+?>
 <header>
   <div class="logo"><a href="index.php"><img src="img/icon.png" alt="" srcset=""></a></div>
   <div>
@@ -67,7 +73,7 @@
       </form>
     </div>
   </div>
-  <form action="page/Men/search_products.php" method="post"><input class="search" type="search" name="search_key" id="" placeholder="search for products, bands and more"></form>
+  <form action="/page/Men/search_products.php" method="post"><input class="search" type="search" name="search_key" id="" placeholder="search for products, bands and more"></form>
 
   <div class="uper side">
     <div class="dropdown headerimg">
@@ -78,8 +84,8 @@
     </div>
 
     <div class="dropdown headerimg">
-      <a href="#">
-        <img src="img/cart.png" alt="" srcset="">
+      <a href="/page/cart.php">
+        <img src="img/cart.png" alt="" srcset=""><sup><? echo $row_count; ?></sup>
         <p>Cart</p>
       </a>
     </div>

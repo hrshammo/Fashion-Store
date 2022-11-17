@@ -14,7 +14,7 @@ if (isset($_POST['login'])) {
 
     if ($check_pass) {
         $_SESSION['username'] = $username;
-        echo "<script>window.open('../profile.php','_self')</script>";
+        echo "<script>window.open('../index.php','_self')</script>";
     } else {
         echo "<script>alert('Login Failed..\nInvalid Password!')</script>";
     }

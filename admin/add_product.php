@@ -40,35 +40,35 @@ include('../db/connect.php');
     ?>
 
 
-    <section class="vh-100 bg-image addproduct" style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');">
+    <section class="vh-100 bg-image addproduct">
         <div class="mask d-flex align-items-center h-100 gradient-custom-3">
             <div class="container h-100">
                 <div class="row d-flex justify-content-center align-items-center h-100">
                     <div class="col-12 col-md-9 col-lg-7 col-xl-6">
                         <div class="card" style="border-radius: 15px;">
                             <div class="card-body p-5">
-                                <h2 class="text-uppercase text-center mb-5">Add Products</h2>
+                                <h2 class="text-uppercase text-center mb-3">Add Products</h2>
 
                                 <!--  -->
                                 <form action="" method="post">
 
-                                    <div class="form-outline mb-3">
-                                        <input type="text" id="name" placeholder="Product Name" name="p_name" class="form-control form-control-lg" required />
+                                    <div class="form-outline mb-1">
+                                        <input type="text" id="name" placeholder="Product Name" name="p_name" class="form-control form-control-m" required />
 
                                     </div>
-                                    <div class="form-outline mb-3">
-                                        <input type="text" id="details" placeholder="Product details" name="p_details" class="form-control form-control-lg" required />
+                                    <div class="form-outline mb-1">
+                                        <input type="text" id="details" placeholder="Product details" name="p_details" class="form-control form-control-m" required />
                                     </div>
 
 
-                                    <div class="form-outline mb-3">
-                                        <input type="number" placeholder="price" id="price" name="p_price" class="form-control form-control-lg" required />
+                                    <div class="form-outline mb-1">
+                                        <input type="number" placeholder="price" id="price" name="p_price" class="form-control form-control-m" required />
                                     </div>
 
-                                    <div class="form-outline mb-3">
-                                        <input type="number" placeholder="Products quantity" id="quantity" name="p_quantity" class="form-control form-control-lg" required />
+                                    <div class="form-outline mb-1">
+                                        <input type="number" placeholder="Products quantity" id="quantity" name="p_quantity" class="form-control form-control-m" required />
 
-                                        <div class="col-md-6 mb-4 form-outline ">
+                                        <div class="col-md-6 mb-2 form-outline ">
                                             <select class="select" name="p_color" required>
                                                 <option value="Colour">Colour</option>
                                                 <option value="Blue">Blue</option>
@@ -81,7 +81,7 @@ include('../db/connect.php');
                                             </select>
                                         </div>
 
-                                        <div class="col-md-6 mb-4 form-outline ">
+                                        <div class="col-md-6 mb-2 form-outline ">
                                             <select class="select" name="p_ctag" required>
                                                 <option value="C_Tag">C_Tag</option>
                                                 <option value="Men">Men</option>
@@ -94,13 +94,32 @@ include('../db/connect.php');
 
 
 
-                                        <div class="col-md-6 mb-4 form-outline ">
+                                        <div class="col-md-6 mb-2 form-outline ">
                                             <select class="select" name="p_sub_ctag" required>
                                                 <option value="Topwear">Topwear</option>
                                                 <option value="Bottomwear">Bottomwear</option>
                                                 <option value="Sports and Active wear">Sports and Active wear</option>
                                                 <option value="Festive wear">Festive wear</option>
                                                 <option value="Footwear">Footwear</option>
+                                                <option value="Desi and Fusion wear">Desi and Fusion wear</option>
+                                                <option value="Western wear">Western wear</option>
+                                                <option value="Jewellery">Jewellery</option>
+                                                <option value="Boys Clothing">Boys Clothing</option>
+                                                <option value="Girls Clothing">Girls Clothing</option>
+                                                <option value="Boys Footwear">Boys Footwear</option>
+                                                <option value="Girls Foorwear">Girls Foorwear</option>
+                                                <option value="Infants">Infants</option>
+                                                <option value="Kid Accessories">Kid Accessories</option>
+                                                <option value="Makeup">Makeup</option>
+                                                <option value="Skincare,Bath and Body">Skincare,Bath and Body</option>
+                                                <option value="Haircare">Haircare</option>
+                                                <option value="Fragrances">Fragrances</option>
+                                                <option value="Mens Grooming">Mens Grooming</option>
+                                                <option value="Beauty Gift">Beauty Gift</option>
+                                                <option value="Watch">Watch</option>
+                                                <option value="Sunglasses">Sunglasses</option>
+                                                <option value="Belts">Belts</option>
+                                                <option value="Bath Accessories">Bath Accessories</option>
 
                                             </select>
                                         </div>
@@ -110,35 +129,35 @@ include('../db/connect.php');
 
 
                                     </div>
-                                    <div class="form-outline mb-3">
-                                        <input type="text" placeholder="Search keyword" id="" name="p_keyword" class="form-control form-control-lg" required />
+                                    <div class="form-outline mb-1">
+                                        <input type="text" placeholder="Search keyword" id="" name="p_keyword" class="form-control form-control-m" required />
 
                                     </div>
-                                    <div class="form-outline mb-3">
+                                    <div class="form-outline mb-1">
                                         <div class="col-md-9 pe-5">
 
-                                            <input class="form-control form-control-lg" id="formFileLg" type="file" name="p_img" required />
+                                            <input class="form-control form-control-m" id="formFileLg" type="file" name="p_img" required />
                                         </div>
                                     </div>
 
-                                    <div class="form-outline mb-3">
+                                    <div class="form-outline mb-1">
                                         <div class="col-md-9 pe-5">
 
-                                            <input class="form-control form-control-lg" id="formFileLg" type="file" name="p_img1" required />
+                                            <input class="form-control form-control-m" id="formFileLg" type="file" name="p_img1" required />
                                         </div>
                                     </div>
 
-                                    <div class="form-outline mb-3">
+                                    <div class="form-outline mb-1">
                                         <div class="col-md-9 pe-5">
 
-                                            <input class="form-control form-control-lg" id="formFileLg" type="file" name="p_img2" required />
+                                            <input class="form-control form-control-m" id="formFileLg" type="file" name="p_img2" required />
                                         </div>
                                     </div>
 
-                                    <div class="form-outline mb-3">
+                                    <div class="form-outline mb-1">
                                         <div class="col-md-9 pe-5">
 
-                                            <input class="form-control form-control-lg" id="formFileLg" type="file" name="p_img3" required />
+                                            <input class="form-control form-control-m" id="formFileLg" type="file" name="p_img3" required />
                                         </div>
                                     </div>
 

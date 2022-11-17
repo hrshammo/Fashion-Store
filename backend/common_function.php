@@ -38,7 +38,7 @@ function getAllProducts()
              <h3>' . $product_name . '</h3>
              <h4>৳.' . $product_price . '</h4>
          </a>
-         <button class="add_to_cart"> Add to Cart </button>
+         <a href="/index.php?add_to_cart=' . $product_id . '"><button class="add_to_cart"> Add to Cart </button></a>
        </div></form>';
       }
    } else {
@@ -62,15 +62,15 @@ function getSearchedProducts()
             $product_name = $row['p_name'];
             $product_price = $row['p_price'];
 
-            echo '<form class="ctag_u" action="#" method="get"><div class="ctag_u">
+            echo '<div class="ctag_u">
          <a href="product.php?id=' . $product_id . '">
            <div class="c_img_bg_u ">
              <img class="ctag_img_u" src="img/' . $product_image . '" alt="">
              <h3>' . $product_name . '</h3>
              <h4>৳.' . $product_price . '</h4>
          </a>
-         <button class="add_to_cart"> Add to Cart </button>
-       </div></form>';
+         <a href="/add_to_cart.php?add_to_cart=' . $product_id . '"><button class="add_to_cart"> Add to Cart </button></a>
+       </div>';
          }
       } else {
          die(mysqli_error($conn));
@@ -97,18 +97,54 @@ function getProductsByCategory()
             $product_name = $row['p_name'];
             $product_price = $row['p_price'];
 
-            echo '<form class="ctag_u" action="#" method="get"><div class="ctag_u">
+            echo '<div class="ctag_u">
+            
          <a href="product.php?id=' . $product_id . '">
            <div class="c_img_bg_u ">
              <img class="ctag_img_u" src="img/' . $product_image . '" alt="">
              <h3>' . $product_name . '</h3>
              <h4>৳.' . $product_price . '</h4>
          </a>
-         <button class="add_to_cart"> Add to Cart </button>
-       </div></form>';
+      
+         <a href="../../add_to_cart.php?add_to_cart=' . $product_id . '"><button class="add_to_cart"> Add to Cart </button></a>
+       </div>';
          }
       } else {
          die(mysqli_error($conn));
+      }
+   }
+}
+
+function AddtoCart()
+{
+   $conn = mysqli_connect('localhost', 'root', '', 'eco_admin');
+   if (isset($_GET['add_to_cart'])) {
+      $product_id = $_GET['add_to_cart'];
+      $ip = getIpaddress();
+      $quantity = 1;
+
+      $check_sql = "select * from cart_details where product_id='$product_id' and ip_address='$ip'";
+      $result = mysqli_query($conn, $check_sql);
+      $count_row = mysqli_num_rows($result);
+      if ($count_row == 0) {
+
+         $sql = "insert into cart_details (product_id,ip_address,quantity) values('$product_id','$ip','$quantity')";
+         $res = mysqli_query($conn, $sql);
+         if ($res) {
+            echo "<script>alert('Item added to cart')</script>";
+            echo "<script>window.open('/index.php','_self')</script>";
+            //         echo '<div class="alert alert-success" role="alert">
+            //         <strong>Success..<br></strong> Item added to cart
+            //  </div>';
+         } else {
+            die(mysqli_error($conn));
+         }
+      } else {
+         echo "<script>alert('This item  is already present inside cart')</script>";
+         echo "<script>window.open('/index.php','_self')</script>";
+         //       echo '<div class="alert alert-warning" role="alert">
+         //    <strong>Success..<br></strong> This item  is already present inside cart
+         //  </div>';
       }
    }
 }
