@@ -24,7 +24,7 @@ if (isset($_POST['Register'])) {
     if ($res) {
         $_SESSION['username'] = $username;
         echo "<script>alert('Registration Successful')</script>";
-        echo "<script>window.open('../profile.php','_self')</script>";
+        echo "<script>window.open('../index.php','_self')</script>";
     } else {
         die(mysqli_error($conn));
     }
