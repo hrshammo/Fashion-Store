@@ -1,5 +1,5 @@
 <?php
-// include('../db/connect.php');
+//include('../db/connect.php');
 // getting ip address
 function getIPAddress()
 {
@@ -147,4 +147,15 @@ function AddtoCart()
          //  </div>';
       }
    }
+}
+
+function ItemInCart()
+{
+   $ip = getIPAddress();
+   $conn = mysqli_connect('localhost', 'root', '', 'eco_admin');
+   $sql = "select * from cart_details where ip_address = '$ip'";
+   $res = mysqli_query($conn, $sql);
+   $count_cart_item = mysqli_num_rows($res);
+
+   return $count_cart_item;
 }
