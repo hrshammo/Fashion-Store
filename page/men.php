@@ -1,7 +1,7 @@
 <?php
 session_start();
-include('../../db/connect.php');
-include '../../backend/common_function.php';
+include('../db/connect.php');
+include '../backend/common_function.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
