@@ -15,13 +15,10 @@ if (isset($_GET['add_to_cart'])) {
         $sql = "insert into cart_details (product_id,ip_address,quantity) values('$p_id','$ip','$quantity')";
         $res = mysqli_query($conn, $sql);
         if ($res) {
-            echo '<div class="alert alert-success" role="alert">
-                    <strong>Success..<br></strong> Item added to cart
-             </div>';
-            //echo "<script>alert('Item added to cart')</script>";
+            echo "<script>alert('Item added to cart')</script>";
             // sleep(5);
-            header('Location: ' . $_SERVER['HTTP_REFERER']);
-            // echo "<script>window.open('index.php','_self')</script>";
+            //header('Location: ' . $_SERVER['HTTP_REFERER']);
+            echo "<script>window.open('index.php','_self')</script>";
             //         echo '<div class="alert alert-success" role="alert">
             //         <strong>Success..<br></strong> Item added to cart
             //  </div>';
