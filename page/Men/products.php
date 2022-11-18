@@ -48,56 +48,8 @@ include '../../backend/common_function.php';
       <?php
       // getAllProducts();
       getProductsByCategory();
+      AddtoCart();
       ?>
-      <!-- <div class="ctag_u">
-        <a href="product_details.php">
-          <div class="c_img_bg_u ">
-            <img class="ctag_img_u" src="img/img.jpg" alt="">
-            <h3>product name </h3>
-            <h4>Price</h4>
-        </a>
-        <button class="add_to_cart"> Add to Cart </button>
-      </div> -->
-
-      <!-- <div class="ctag_u">
-        <a href="product_details.php">
-          <div class="c_img_bg_u ">
-            <img class="ctag_img_u" src="img/img.jpg" alt="">
-            <h3>product name </h3>
-            <h4>Price</h4>
-        </a>
-        <button class="add_to_cart"> Add to Cart </button>
-      </div>
-
-      <div class="ctag_u">
-        <a href="product_details.php">
-          <div class="c_img_bg_u ">
-            <img class="ctag_img_u" src="img/img.jpg" alt="">
-            <h3>product name </h3>
-            <h4>Price</h4>
-        </a>
-        <button class="add_to_cart"> Add to Cart </button>
-      </div>
-
-      <div class="ctag_u">
-        <a href="product_details.php">
-          <div class="c_img_bg_u ">
-            <img class="ctag_img_u" src="img/img.jpg" alt="">
-            <h3>product name </h3>
-            <h4>Price</h4>
-        </a>
-        <button class="add_to_cart"> Add to Cart </button>
-      </div>
-
-      <div class="ctag_u">
-        <a href="product_details.php">
-          <div class="c_img_bg_u ">
-            <img class="ctag_img_u" src="img/img.jpg" alt="">
-            <h3>product name </h3>
-            <h4>Price</h4>
-        </a>
-        <button class="add_to_cart"> Add to Cart </button>
-      </div> -->
 
     </div>
   </div>

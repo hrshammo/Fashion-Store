@@ -1,6 +1,7 @@
 <?php
 session_start();
-include '../../backend/common_function.php';
+include('../../db/connect.php');
+// include '../../backend/common_function.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -36,6 +37,7 @@ include '../../backend/common_function.php';
 
   <div>
     <?php
+    $ctg = "";
     if (isset($_GET['ctg'])) {
       $ctg = $_GET['ctg'];
     }
@@ -45,65 +47,42 @@ include '../../backend/common_function.php';
 
       <!-- call product function to display all products -->
       <?php
-      // getAllProducts();
-      getProductsByCategory();
+      if (isset($_GET['ctg'])) {
+        $full_ctg = $_GET['ctg'];
+        $split_ctg = explode("/", $full_ctg);
+        $ctg = $split_ctg[0];
+        $sub_ctg = $split_ctg[1];
+
+        $conn = mysqli_connect('localhost', 'root', '', 'eco_admin');
+        $sql = "select * from product where p_ctag='$ctg' and p_sub_ctag='$sub_ctg'";
+        $res = mysqli_query($conn, $sql);
+        if ($res) {
+          while ($row = mysqli_fetch_array($res)) {
+            $product_id = $row['p_id'];
+            $product_image = $row['p_img1'];
+            $product_name = $row['p_name'];
+            $product_price = $row['p_price'];
+
+            echo '<div class="ctag_u">
+              
+           <a href="product.php?id=' . $product_id . '">
+             <div class="c_img_bg_u ">
+               <img class="ctag_img_u" src="img/' . $product_image . '" alt="">
+               <h3>' . $product_name . '</h3>
+               <h4>৳.' . $product_price . '</h4>
+           </a>
+        
+           <a href="../../add_to_cart.php?add_to_cart=' . $product_id . '"><button class="add_to_cart"> Add to Cart </button></a>
+         </div>';
+          }
+        } else {
+          die(mysqli_error($conn));
+        }
+      }
       ?>
-      <!-- <div class="ctag_u">
-        <a href="product.php">
-          <div class="c_img_bg_u ">
-            <img class="ctag_img_u" src="img/img.jpg" alt="">
-            <h3>product name </h3>
-            <h4>Price</h4>
-        </a>
-        <button class="add_to_cart"> Add to Cart </button>
-      </div> -->
-
-      <!-- <div class="ctag_u">
-        <a href="product.php">
-          <div class="c_img_bg_u ">
-            <img class="ctag_img_u" src="img/img.jpg" alt="">
-            <h3>product name </h3>
-            <h4>Price</h4>
-        </a>
-        <button class="add_to_cart"> Add to Cart </button>
-      </div>
-
-      <div class="ctag_u">
-        <a href="product.php">
-          <div class="c_img_bg_u ">
-            <img class="ctag_img_u" src="img/img.jpg" alt="">
-            <h3>product name </h3>
-            <h4>Price</h4>
-        </a>
-        <button class="add_to_cart"> Add to Cart </button>
-      </div>
-
-      <div class="ctag_u">
-        <a href="product.php">
-          <div class="c_img_bg_u ">
-            <img class="ctag_img_u" src="img/img.jpg" alt="">
-            <h3>product name </h3>
-            <h4>Price</h4>
-        </a>
-        <button class="add_to_cart"> Add to Cart </button>
-      </div>
-
-      <div class="ctag_u">
-        <a href="product.php">
-          <div class="c_img_bg_u ">
-            <img class="ctag_img_u" src="img/img.jpg" alt="">
-            <h3>product name </h3>
-            <h4>Price</h4>
-        </a>
-        <button class="add_to_cart"> Add to Cart </button>
-      </div> -->
 
     </div>
   </div>
-
-
-
-
 
 
 

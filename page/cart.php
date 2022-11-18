@@ -110,6 +110,11 @@ include '../db/connect.php';
                       }
                     }
                     ?>
+                    <div class="row mb-4 d-flex justify-content-between align-items-center display-none">
+                            <div class="col-md-2 col-lg-2 col-xl-2 display-none">
+                              <img src="men/img/' . $p_image . '" class="img-fluid rounded-3 display-none" alt="Cotton T-shirt">
+                            </div>
+                    </div>
                     <!-- <hr class="my-4">
 
                     <div class="row mb-4 d-flex justify-content-between align-items-center">
@@ -148,7 +153,7 @@ include '../db/connect.php';
                     </div>
                   </div>
                 </div>
-                <div class="col-lg-4 bg-grey">
+                <div class="col-lg-4 bg-grey total_cart">
                   <div class="p-5">
                     <h3 class="fw-bold mb-5 mt-2 pt-1">Summary</h3>
                     <hr class="my-4">

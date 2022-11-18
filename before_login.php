@@ -155,7 +155,7 @@ include('db/connect.php');
     $row_count = mysqli_num_rows($res);
     ?>
     <div class="dropdown headerimg">
-      <a href="/page/cart.php">
+      <a href="/Fashion-Store/page/cart.php">
         <img src="img/cart.png" alt="" srcset=""><sup><?php echo $row_count; ?></sup>
         <p>Cart</p>
       </a>

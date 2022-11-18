@@ -40,7 +40,7 @@ session_start();
 
   <!-- Fetch product details from database -->
   <?php
-  include('../../db/connect.php');
+  // include('../../db/connect.php');
 
   if (isset($_GET['id'])) {
     $p_id = $_GET['id'];
@@ -114,7 +114,7 @@ session_start();
     </div>
     <p>&nbsp;</p>
 
-    <button class="addbagb">ADD TO CART</button>
+    <a href="../../add_to_cart.php?add_to_cart=<?php echo $p_id; ?>"><button class="addbagb">ADD TO CART</button></a>
     <!-- <button class="wishlistb">WISHLIST</button> -->
 
     <div class="delivery">
