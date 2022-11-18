@@ -84,11 +84,11 @@ include('../db/connect.php');
                                         <div class="col-md-6 mb-2 form-outline ">
                                             <select class="select" name="p_ctag" required>
                                                 <option value="C_Tag">C_Tag</option>
-                                                <option value="Men" style="background-color: #333454; color: aliceblue;">Men</option>
-                                                <option value="Woman" style="background-color:#59343e ;color: aliceblue;">Woman</option>
-                                                <option value="Kid" style="background-color:#34594c ;color: aliceblue;">Kid</option>
-                                                <option value="Beauty" style="background-color:#522f4b ;color: aliceblue;">Beauty</option>
-                                                <option value="Accessories " style="background-color:#263024 ;color: aliceblue;">Accessories</option>
+                                                <option value="Men">Men</option>
+                                                <option value="Woman">Woman</option>
+                                                <option value="Kid">Kid</option>
+                                                <option value="Beauty">Beauty</option>
+                                                <option value="Accessories">Accessories</option>
                                             </select>
                                         </div>
 
@@ -96,30 +96,30 @@ include('../db/connect.php');
 
                                         <div class="col-md-6 mb-2 form-outline ">
                                             <select class="select" name="p_sub_ctag" required>
-                                                <option value="Topwear"   style="background-color: #333454;color: aliceblue;">Topwear</option>
-                                                <option value="Bottomwear"  style="background-color: #333454;color: aliceblue">Bottomwear</option>
-                                                <option value="Sports and Active wear"  >Sports and Active wear</option>
-                                                <option value="Festive wear"  style="background-color: #333454;color: aliceblue">Festive wear</option>
-                                                <option value="Footwear"  >Footwear</option>
-                                                <option value="Desi and Fusion wear"  style="background-color:#59343e ;color: aliceblue;">Desi and Fusion wear</option>
-                                                <option value="Western wear" style="background-color:#59343e ;color: aliceblue;">Western wear</option>
-                                                <option value="Jewellery" style="background-color:#59343e ;color: aliceblue;">Jewellery</option>
-                                                <option value="Boys Clothing" style="background-color:#34594c ;color: aliceblue;">Boys Clothing</option>
-                                                <option value="Girls Clothing" style="background-color:#34594c ;color: aliceblue;">Girls Clothing</option>
-                                                <option value="Boys Footwear" style="background-color:#34594c ;color: aliceblue;">Boys Footwear</option>
-                                                <option value="Girls Foorwear" style="background-color:#34594c ;color: aliceblue;">Girls Foorwear</option>
-                                                <option value="Infants" style="background-color:#34594c ;color: aliceblue;">Infants</option>
-                                                <option value="Kid Accessories" style="background-color:#34594c ;color: aliceblue;">Kid Accessories</option>
-                                                <option value="Makeup"  style="background-color:#522f4b ;color: aliceblue;">Makeup</option>
-                                                <option value="Skincare,Bath and Body" style="background-color:#522f4b ;color: aliceblue;">Skincare,Bath and Body</option>
-                                                <option value="Haircare" style="background-color:#522f4b ;color: aliceblue;">Haircare</option>
-                                                <option value="Fragrances" style="background-color:#522f4b ;color: aliceblue;">Fragrances</option>
-                                                <option value="Mens Grooming" style="background-color:#522f4b ;color: aliceblue;">Mens Grooming</option>
-                                                <option value="Beauty Gift" style="background-color:#522f4b ;color: aliceblue;">Beauty Gift</option>
-                                                <option value="Watch" style="background-color:#263024 ;color: aliceblue;">Watch</option>
-                                                <option value="Sunglasses" style="background-color:#263024 ;color: aliceblue;">Sunglasses</option>
-                                                <option value="Belts" style="background-color:#263024 ;color: aliceblue;">Belts</option>
-                                                <option value="Bath Accessories" style="background-color:#263024 ;color: aliceblue;">Bath Accessories</option>
+                                                <option value="Topwear">Topwear</option>
+                                                <option value="Bottomwear">Bottomwear</option>
+                                                <option value="Sports and Active wear">Sports and Active wear</option>
+                                                <option value="Festive wear">Festive wear</option>
+                                                <option value="Footwear">Footwear</option>
+                                                <option value="Desi and Fusion wear">Desi and Fusion wear</option>
+                                                <option value="Western wear">Western wear</option>
+                                                <option value="Jewellery">Jewellery</option>
+                                                <option value="Boys Clothing">Boys Clothing</option>
+                                                <option value="Girls Clothing">Girls Clothing</option>
+                                                <option value="Boys Footwear">Boys Footwear</option>
+                                                <option value="Girls Foorwear">Girls Foorwear</option>
+                                                <option value="Infants">Infants</option>
+                                                <option value="Kid Accessories">Kid Accessories</option>
+                                                <option value="Makeup">Makeup</option>
+                                                <option value="Skincare,Bath and Body">Skincare,Bath and Body</option>
+                                                <option value="Haircare">Haircare</option>
+                                                <option value="Fragrances">Fragrances</option>
+                                                <option value="Mens Grooming">Mens Grooming</option>
+                                                <option value="Beauty Gift">Beauty Gift</option>
+                                                <option value="Watch">Watch</option>
+                                                <option value="Sunglasses">Sunglasses</option>
+                                                <option value="Belts">Belts</option>
+                                                <option value="Bath Accessories">Bath Accessories</option>
 
                                             </select>
                                         </div>
