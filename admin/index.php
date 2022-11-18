@@ -15,9 +15,9 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
     
 <script type="text/javascript" src="https://res.cloudinary.com/veseylab/raw/upload/v1636192990/magicmouse/magic_mouse-1.2.1.cdn.min.js"></script>
-<script src="js/js_own.js"></script>
+<script src="../js/js_own.js"></script>
 
-<title>HRX | Admin</title>
+<title>HRX | Admin Login</title>
  </head>
  <body>
 <style>
@@ -130,13 +130,14 @@ label {
 }
 
 .login-btm {
-    float: left;
+    float: center;
 }
 
 .login-button {
     padding-right: 0px;
     text-align: right;
     margin-bottom: 25px;
+   
 }
 
 .login-text {
