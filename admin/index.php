@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,11 +19,6 @@
 
     <script type="text/javascript" src="https://res.cloudinary.com/veseylab/raw/upload/v1636192990/magicmouse/magic_mouse-1.2.1.cdn.min.js"></script>
     <script src="js/js_own.js"></script>
-
-    <title>HRX | Admin</title>
-</head>
-
-<body>
     <style>
         body {
             background: #222D32;
@@ -154,6 +152,11 @@
             left: 20px;
         }
     </style>
+    <title>HRX | Admin</title>
+</head>
+
+<body>
+
     <div class="container">
         <div class="row">
             <div class="col-lg-3 col-md-2"></div>
@@ -213,7 +216,7 @@ if (isset($_POST['login'])) {
 
     if ($res) {
         $_SESSION['admin_username'] = $username;
-        echo "<script>window.open('add_product.php','_self')</script>";
+        echo "<script>window.open('profile.php','_self')</script>";
     } else {
         echo "<script>alert('Login Failed')</script>";
     }

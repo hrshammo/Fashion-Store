@@ -104,7 +104,7 @@ include 'backend/common_function.php';
     <div class="dropdown2">
       <?php
       if (isset($_SESSION['username'])) {
-        echo '<a href="backend/user_logout.php" style="top:-20px; color: white; !important">
+        echo '<a href="user_area/profile.php" style="top:-20px; color: white; !important">
         <img src="img/profile.png" alt="" srcset=""  style="width:20px; !important">
         <p>Profile</p>
       </a>';
