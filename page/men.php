@@ -1,7 +1,7 @@
 <?php
 session_start();
 include('../db/connect.php');
-include '../backend/common_function.php';
+include('../backend/common_function.php');
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -166,7 +166,9 @@ include '../backend/common_function.php';
       </div>
     </div>
 
+    <?php
 
+    ?>
 
     </div>
     <div class="uper  side2">
