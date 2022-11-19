@@ -35,3 +35,37 @@ body{
     border-bottom-right-radius: 16px;
     }
     }
+
+    .h-10{
+        height: 30px;
+    }
+    /* HIDE RADIO */
+[type=radio] { 
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  /* IMAGE STYLES */
+  [type=radio] + img {
+    cursor: pointer;
+  }
+  
+  /* CHECKED STYLES */
+  [type=radio]:checked + img {
+    outline: 2px solid rgb(98, 84, 160);
+  }
+.payment_m{
+    width: 150px;
+    height: auto;
+}
+.radio_img img{
+    width: 150px ;
+}
+.checkout_btn{
+  display: block;
+  align-self: center;
+  left: 43%;
+}
+
