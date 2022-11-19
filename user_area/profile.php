@@ -34,7 +34,7 @@ if ($user_img == null) {
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HRX | Profile</title>
- <link rel="shortcut icon" href="../img/fab.png" type="image/x-icon">
+    <link rel="shortcut icon" href="../img/fab.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
@@ -91,8 +91,8 @@ if ($user_img == null) {
             <li>
                 <a href="#">
                     <i class="fa-thin fa"></i>
-                    <i class='bx bx-pie-chart-alt-2'></i>
-                    <span class="links_name">Analytics</span>
+                    <i class='bx bxs-key bx-rotate-180' style='color:#fcfafa'></i>
+                    <span class="links_name">Change Password</span>
                 </a>
 
             </li>
@@ -194,7 +194,7 @@ if ($user_img == null) {
                                 </div>
                                 <div class="d-flex justify-content-center mb-2">
                                     <!-- <button type="button" class="btn btn-primary">Follow</button> -->
-                                    <a href=""><button type="button" class="btn btn-outline-primary ms-1"><i class='bx bxs-edit' style='color:#3a3a3a'></i> Edit</button></a>
+                                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" style="border:none !important"><i class='bx bxs-edit' style='color:#3a3a3a'></i> Edit</button>
                                 </div>
                             </div>
 
@@ -202,11 +202,49 @@ if ($user_img == null) {
                     </div>
                 </div>
             </section>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <!-- <div class="modal-dialog"> -->
+                <div class="modal-dialog modal-dialog-centered">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">Login</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-popup" id="myForm">
+                                <form action="user_area/checkout_login.php" class="form-container" method="post">
+                                    <h1>Login</h1>
+
+                                    <input type="text" placeholder="Username" name="username" required>
+
+                                    <input type="password" placeholder="Password" name="password" required>
+
+                                    <button type="submit" class="btn" name="Login">Login</button>
+                                    <a href="">Forgot password?</a>
+                                    <a href="account.php"><button type="button" class="btn cancel">Go For Registration</button></a>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
         </div>
-
-
     </section>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 
+
+    <script>
+        const myModal = document.getElementById('myModal')
+        const myInput = document.getElementById('myInput')
+
+        myModal.addEventListener('shown.bs.modal', () => {
+            myInput.focus()
+        })
+    </script>
 </body>
 
 </html>
