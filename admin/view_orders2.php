@@ -121,7 +121,6 @@ $username = $_SESSION['admin_username'];
                 </thead>
                 <tbody>
                     <?php
-                    $i = 0;
                     $count = 1;
                     $query = "select * from pending_orders where order_status = 'pending'";
 
@@ -143,34 +142,30 @@ $username = $_SESSION['admin_username'];
                                     $c_name = $user_row['name'];
                                     $c_email = $user_row['user_email'];
 
-                                    while ($i < $index - 1) {
-                                        $id = $split[$i];
-                                        $product_sql = "select * from product where p_id=$id";
-                                        $product_res = mysqli_query($conn, $product_sql);
-                                        if ($product_res) {
-                                            while ($product_row = mysqli_fetch_array($product_res)) {
-                                                $p_img = $product_row['p_img1'];
-                                                $p_name = $product_row['p_name'];
+                                    $product_sql = "select * from product where p_id=$product_id";
+                                    $product_res = mysqli_query($conn, $product_sql);
+                                    if ($product_res) {
+                                        while ($product_row = mysqli_fetch_array($product_res)) {
+                                            $p_img = $product_row['p_img1'];
+                                            $p_name = $product_row['p_name'];
 
-                                                echo '<tr>
+                                            echo '<tr>
                             <th scope="row">' . $count++ . '</th>
                             <td><img src="../page/Men/img/' . $p_img . '" alt="" style="width:100px; height:100px; object-fit:contain; !important"></img></td>
                             <td>' . $p_name . '</td>
                             <td>' . $c_name . '</td>
                             <td>' . $c_email . '</td>
                             <td>' . $invoice . '</td>
-                            <td>' . rand(1, 3) . '</td>
+                            <td>' . $quantity . '</td>
                             <td>' . $status . '</td>
                             <td>
                             <a href="accept_order.php?id=' . $order_id . '" style="margin-right: 20px !important"><i class="bx bxs-message-rounded-edit" ></i></a>
                             <a href="delete_order.php?id=' . $order_id . '" style="margin-left: 20px !important"><i class="bx bxs-trash" style="color:#3a3a3a" ></i></a>
                             </td>
                         </tr>';
-                                            }
-                                        } else {
-                                            die(mysqli_error($conn));
                                         }
-                                        $i++;
+                                    } else {
+                                        die(mysqli_error($conn));
                                     }
                                 }
                             } else {

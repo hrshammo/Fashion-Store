@@ -144,6 +144,16 @@ $u_id = $row['user_id'];
                         <th scope="col">Total Products</th>
                         <th scope="col">Amount</th>
                         <th scope="col">Status</th>
+                        <?php
+                        if (isset($_GET['type'])) {
+                            $type = $_GET['type'];
+
+                            if ($type == "pending") {
+                                echo '<th scope="col">Operation</th>';
+                            }
+                        }
+                        ?>
+
                     </tr>
                 </thead>
                 <tbody>
@@ -154,21 +164,51 @@ $u_id = $row['user_id'];
                         $query;
                         if ($type == "accepted") {
                             $query = "select * from user_orders where user_id='$u_id' and order_status='$type' or order_status='canceled'";
-                        } else if ($type == "pending") {
-                            $query = "select * from user_orders where user_id='$u_id' and order_status='$type'";
-                        }
-                        $result = mysqli_query($conn, $query);
-                        if ($result) {
-                            while ($data = mysqli_fetch_array($result)) {
-                                echo '<tr>
+                            $result = mysqli_query($conn, $query);
+                            if ($result) {
+                                while ($data = mysqli_fetch_array($result)) {
+                                    echo '<tr>
                             <th scope="row">' . $count++ . '</th>
                             <td>' . $data['invoice_number'] . '</td>
                             <td>' . $data['total_products'] . '</td>
                             <td>' . $data['amount'] . '</td>
                             <td>' . $data['order_status'] . '</td>
                         </tr>';
+                                }
+                            }
+                        } else if ($type == "pending") {
+                            $query = "select * from user_orders where user_id='$u_id' and order_status='$type'";
+                            $result = mysqli_query($conn, $query);
+                            if ($result) {
+                                while ($data = mysqli_fetch_array($result)) {
+                                    echo '<tr>
+                            <th scope="row">' . $count++ . '</th>
+                            <td>' . $data['invoice_number'] . '</td>
+                            <td>' . $data['total_products'] . '</td>
+                            <td>' . $data['amount'] . '</td>
+                            <td>' . $data['order_status'] . '</td>
+                            <td>
+                            <a href="delete_order.php?id=' . $u_id . '" style="margin-left: 30px !important"><i class="bx bxs-trash" style="color:#3a3a3a" ></i></a>
+                            </td>
+                            </tr>';
+                                }
                             }
                         }
+                        // $result = mysqli_query($conn, $query);
+                        // if ($result) {
+                        //     while ($data = mysqli_fetch_array($result)) {
+                        //         echo '<tr>
+                        //     <th scope="row">' . $count++ . '</th>
+                        //     <td>' . $data['invoice_number'] . '</td>
+                        //     <td>' . $data['total_products'] . '</td>
+                        //     <td>' . $data['amount'] . '</td>
+                        //     <td>' . $data['order_status'] . '</td>
+                        //     <td>
+                        //     <a href="delete_order.php?id=' . $u_id . '" style="margin-left: 30px !important"><i class="bx bxs-trash" style="color:#3a3a3a" ></i></a>
+                        //     </td>
+                        // </tr>';
+                        //     }
+                        // }
                     }
                     ?>
 
