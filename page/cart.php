@@ -105,7 +105,7 @@ include '../backend/common_function.php';
     <div class="dropdown2">
       <?php
       if (isset($_SESSION['username'])) {
-        echo '<a href="../backend/user_logout.php" style="top:-20px; color: white; !important">
+        echo '<a href="../user_area/profile.php" style="top:-20px; color: white; !important">
         <img src="img/profile.png" alt="" srcset=""  style="width:20px; !important">
         <p>Profile</p>
       </a>';
@@ -202,6 +202,7 @@ include '../backend/common_function.php';
 
                     <?php
                     if ($res) {
+                      $tax = 0;
                       $total = 0;
                       $sub_total = 0;
                       while ($row = mysqli_fetch_array($res)) {
@@ -217,7 +218,6 @@ include '../backend/common_function.php';
                           $total = $total + ($p_price * $p_quantity);
 
                           echo '<hr class="my-4">
-
                           <div class="row mb-4 d-flex justify-content-between align-items-center">
                             <div class="col-md-2 col-lg-2 col-xl-2">
                               <img src="men/img/' . $p_image . '" class="img-fluid rounded-3" alt="Cotton T-shirt">
@@ -248,6 +248,8 @@ include '../backend/common_function.php';
                           </div>';
                         }
                       }
+                    } else {
+                      die(mysqli_error($conn));
                     }
                     ?>
 
@@ -274,12 +276,18 @@ include '../backend/common_function.php';
                     <h5 class="text-uppercase mb-3">Shipping</h5>
 
                     <div class="mb-4 pb-2">
-                      <select class="select">
-                        <option value="1">Standard-Delivery(2-3 Days)- ৳ 50</option>
-                        <option value="2">Fast-Delivery(1 Day)- ৳ 100</option>
-                        <option value="3">Ferr-Delivery(5-7 Days)- ৳ 00</option>
-                        <option value="4">Collect From Check Point -৳ 00 </option>
-                      </select>
+                      <form action="" method="post">
+                        <select class="select" name="tax" style="margin-bottom: 5px !important">
+                          <option>Choose a delivery method</option>
+                          <option value="50">Standard-Delivery(2-3 Days)- ৳ 50</option>
+                          <option value="100">Fast-Delivery(1 Day)- ৳ 100</option>
+                          <option value="0">Ferr-Delivery(5-7 Days)- ৳ 00</option>
+                          <option value="0">Collect From Check Point -৳ 00 </option>
+                        </select>
+                        <button type="submit" class="btn btn-outline-secondary" style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;" name="payment_submit">
+                          Confirm Delivery Method
+                        </button>
+                      </form>
                     </div>
 
                     <h5 class="text-uppercase mb-3">Give code</h5>
@@ -293,12 +301,25 @@ include '../backend/common_function.php';
 
                     <hr class="my-4">
 
+                    <?php
+                    if (isset($_POST['payment_submit'])) {
+                      $tax = $_POST['tax'];
+                    }
+                    ?>
                     <div class="d-flex justify-content-between mb-5">
                       <h5 class="text-uppercase">Total price</h5>
-                      <h5>৳ <?php echo $total; ?></h5>
+                      <h5>৳ <?php echo $total + $tax; ?></h5>
                     </div>
 
-                    <button type="button" class="btn btn-dark btn-block btn-lg" data-mdb-ripple-color="dark">Checkout</button>
+                    <?php
+                    if (isset($_SESSION['username'])) {
+                      echo '<button type="button" class="btn btn-dark btn-block btn-lg" data-mdb-ripple-color="dark" data-bs-toggle="modal" data-bs-target="#exampleModal">Checkout</button>';
+                      // echo '<a href="checkout.php"><button type="button" class="btn btn-dark btn-block btn-lg" data-mdb-ripple-color="dark">Checkout</button></a>';
+                    } else {
+                      echo '<label class="form-label" for="form3Examplea2">Please, login first to checkout</label>';
+                    }
+                    ?>
+
 
                   </div>
                 </div>
@@ -310,6 +331,68 @@ include '../backend/common_function.php';
     </div>
   </section>
 
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <!-- <div class="modal-dialog"> -->
+    <div class="modal-dialog modal-dialog-centered ">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Choose Payment Method</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="form-popup" id="myForm">
+            <div class="col-xl-12 bg-grey">
+              <div class="p-5">
+                <h3 class="fw-bold mb-5 mt-2 pt-1">Order</h3>
+                <hr class="my-4">
+
+
+
+                <h5 class="text-uppercase mb-3">Select Payment Method</h5>
+
+                <!-- if bkash or bitcoin Select h3 will show -->
+                <!-- <h3 style="color: #d42c2c;">Currently Not available</h3> -->
+                <!-- <form action="" method="post"> -->
+                <label class="radio_img">
+                  <input type="radio" name="test" value="small" checked>
+                  <!-- <button class="p_btn" type="submit"><img class="payment_m" src="../img/cod.png" alt="Cash on delivery"></button> -->
+                  <img class="payment_m" src="../img/cod.png" alt="Cash on delivery">
+                </label>
+
+                <label>
+                  <input type="radio" name="test" value="big">
+                  <img class="payment_m" src="../img/bkash.png" alt="Bkash">
+                </label>
+                <label>
+                  <input type="radio" name="test" value="big">
+                  <img class="payment_m" src="../img/nagad.png" alt="Nagad">
+                </label>
+                <!-- </form> -->
+                <br>
+                <br>
+                <br>
+                <a href="confirm_order.php?data=<?php echo $total . "/" . $row_count ?>"><button class="btn btn-primary disabled" role="button" aria-disabled="true">Confirm Order</button></a>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+
+
+  <script>
+    const myModal = document.getElementById('myModal')
+    const myInput = document.getElementById('myInput')
+
+    myModal.addEventListener('shown.bs.modal', () => {
+      myInput.focus()
+    })
+  </script>
 
   <script>
     function loginpage() {
