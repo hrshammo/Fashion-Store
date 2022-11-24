@@ -1,0 +1,56 @@
+*{
+    margin: 0 auto;
+    padding: 0;
+    position: relative;
+    box-sizing: border-box;
+    font-family: monospace;
+    box-sizing:border-box;
+}    
+   
+a{
+    color: #ff57e3;
+    text-decoration: none;
+}
+  .addproduct{
+    align-items: right;
+    align-self: right;
+    width: 80%;
+    height: auto;
+    display: inline-block;
+    position:relative;
+    top: -100px;
+  }
+
+
+  .manu_admin{
+    display: inline-block;
+    width: 170px;
+    background-color: #2f3e39;
+    height: 1080px;
+    font-size: 16px;
+    position: relative;
+    /* left: -4%; */
+
+  
+  }
+  .manu_admin a{
+    border: none;
+    width: 100%;
+    border-radius: 6px;
+    color: aliceblue;
+    display: block;
+    height: 50px;
+    padding: 20px;
+    padding-bottom: 5px;
+   
+    
+  }
+  .manu_admin a:hover{
+    background-color: #ccc;
+  }
+  .active{
+    background-color: rgb(63, 77, 72);
+    color: black;
+  }
+  
+ 
