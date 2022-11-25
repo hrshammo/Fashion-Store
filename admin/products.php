@@ -1,5 +1,6 @@
 <?php
 include('../db/connect.php');
+include('../backend/common_function.php');
 session_start();
 
 $username = $_SESSION['admin_username'];
@@ -40,18 +41,32 @@ $username = $_SESSION['admin_username'];
 
             </li>
             <li>
-                <a href="" class="active">
+                <a href="products.php" class="active">
                     <i class="fa-thin fa"></i>
-                    <i class='bx bx-cart-alt'></i>
+                    <?php
+                    $product_quantity = ProductQuantity();
+                    if ($product_quantity > 0) {
+                        echo "<i class='bx bx-cart-alt bx-flashing' style='color:#f0f238' ><sup>!</sup></i>";
+                    } else {
+                        echo "<i class='bx bx-cart-alt'></i>";
+                    }
+                    ?>
                     <!-- <i class='bx bxs-cart-download bx-tada' style='color:#fffcfc'></i> -->
                     <span class="links_name">View Products</span>
                 </a>
-
             </li>
             <li>
                 <a href="view_orders.php">
                     <i class="fa-thin fa"></i>
-                    <i class='bx bxs-cart-download bx-tada' style='color:#fffcfc'></i>
+                    <?php
+                    $orders = PendingOrders();
+                    if ($orders > 0) {
+                        echo "<i class='bx bxs-cart-download bx-tada' style='color:#fffcfc'><sup>$orders</sup></i>";
+                    } else {
+                        echo "<i class='bx bxs-cart-download' style='color:#fffcfc'><sup>$orders</sup></i>";
+                    }
+                    ?>
+                    <!-- <i class='bx bxs-cart-download bx-tada' style='color:#fffcfc'><sup><?php echo PendingOrders(); ?></sup></i> -->
                     <span class="links_name">Pending Orders</span>
                 </a>
 
@@ -65,26 +80,10 @@ $username = $_SESSION['admin_username'];
                 </a>
 
             </li>
-            <li>
-                <a href="#">
-                    <i class="fa-thin fa"></i>
-                    <i class='bx bxs-key bx-rotate-180' style='color:#fcfafa'></i>
-                    <span class="links_name">Change Password</span>
-                </a>
-
-            </li>
-            <li>
-                <a href="#" class="warning">
-                    <i class="fa-thin fa"></i>
-                    <i class='bx bx-trash bx-flashing' style='color:#ffffff'></i>
-                    <span class="links_name">Delete Account</span>
-                </a>
-
-            </li>
 
 
             <li>
-                <a href="#">
+                <a href="setting.php">
                     <i class="fa-thin fa"></i>
                     <i class='bx bx-cog bx-spin' style='color:#ffffff'></i>
                     <span class="links_name">Setting</span>
@@ -103,7 +102,11 @@ $username = $_SESSION['admin_username'];
         </ul>
     </div>
     <section class="home-section">
-        <div class="text">Products</div>
+        <div class="text">Products
+
+            <button type="button" class="btn btn-primary add_product_btn" data-bs-toggle="modal" data-bs-target="#exampleModal" style="border:none !important">Add Product</button>
+
+        </div>
         <div class="text-2">
             <table class="table table-striped">
                 <thead class="thead-light">
@@ -115,7 +118,7 @@ $username = $_SESSION['admin_username'];
                         <th scope="col">Keywords</th>
                         <th scope="col">Price</th>
                         <th scope="col">Quantity</th>
-                        <th colspan="2">Operation</th>
+                        <th colspan="2" class="text-center"> Operation</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -126,7 +129,9 @@ $username = $_SESSION['admin_username'];
                     if ($result) {
                         while ($data = mysqli_fetch_array($result)) {
                             $p_id = $data['p_id'];
-                            echo '<tr>
+                            $quantity = $data['p_quantity'];
+                            if ($quantity > 0) {
+                                echo '<tr>
                             <th scope="row">' . $count++ . '</th>
                             <td><img src="../page/Men/img/' . $data["p_img1"] . '" alt="" style="width:100px; height:100px; object-fit:contain; !important"></img></td>
                             <td>' . $data['p_name'] . '</td>
@@ -135,12 +140,33 @@ $username = $_SESSION['admin_username'];
                             <td>' . CURRENCY . $data['p_price'] . '</td>
                             <td>' . $data['p_quantity'] . '</td>
                             <td>
-                            <a href="edit_product.php?id=' . $p_id . '" style="margin-right: 20px !important"><i class="bx bxs-edit" style="color:#3a3a3a" ></i></a>
-                            <a href="delete_product.php?id=' . $p_id . '" style="margin-left: 20px !important"><i class="bx bxs-trash" style="color:#3a3a3a" ></i></a>
+                            <a href="edit_product.php?id=' . $p_id . '" style=""><i class="bx bx-edit fa-2x" style="color:#00cc88" ></i></button></a>
+                            </td>
+                            <td>
+                            <a href="delete_product.php?id=' . $p_id . '" style=""><i class="bx bx-trash fa-2x" style="color:#f80e0e" ></i></a>
                             </td>
                         </tr>';
+                            } else {
+                                echo '<tr class="table-warning">
+                            <th scope="row">' . $count++ . '</th>
+                            <td><img src="../page/Men/img/' . $data["p_img1"] . '" alt="" style="width:100px; height:100px; object-fit:contain; !important"></img></td>
+                            <td>' . $data['p_name'] . '</td>
+                            <td>' . $data['p_details'] . '</td>
+                            <td>' . $data['p_keyword'] . '</td>
+                            <td>' . CURRENCY . $data['p_price'] . '</td>
+                            <td>' . $data['p_quantity'] . '</td>
+                            <td>
+                            <a href="edit_product.php?id=' . $p_id . '" style=""><i class="bx bx-edit fa-2x" style="color:#00cc88" ></i></button></a>
+                            </td>
+                            <td>
+                            <a href="delete_product.php?id=' . $p_id . '" style=""><i class="bx bx-trash fa-2x" style="color:#f80e0e" ></i></a>
+                            </td>
+                        </tr>';
+                            }
                         }
                     }
+                    // <i class="bx bxs-edit" style="color:#3a3a3a" ></i> edit icon
+                    // <i class="bx bxs-trash" style="color:#3a3a3a" ></i> delete icon
 
                     ?>
 
@@ -169,7 +195,7 @@ $username = $_SESSION['admin_username'];
                         <!--  -->
                         <!--  -->
 
-                        <form action="add_product.php" class="form-container" method="post">
+                        <form action="add_product.php" class="form-container" method="post" enctype="multipart/form-data">
 
                             <div class="input-group mb-3">
                                 <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Product Name" name="p_name" required>
@@ -211,7 +237,7 @@ $username = $_SESSION['admin_username'];
                                     <option value="Skincare,Bath and Body" style="background-color:#522f4b ;color: aliceblue;">Skincare,Bath and Body</option>
                                     <option value="Haircare" style="background-color:#522f4b ;color: aliceblue;">Haircare</option>
                                     <option value="Fragrances" style="background-color:#522f4b ;color: aliceblue;">Fragrances</option>
-                                    <option value="Mens Grooming" style="background-color:#522f4b ;color: aliceblue;">Mens Grooming</option>
+                                    <option value="Mens Grooming" style="background-color:#522f4b ;color: aliceblue;">Men Grooming</option>
                                     <option value="Beauty Gift" style="background-color:#522f4b ;color: aliceblue;">Beauty Gift</option>
                                     <option value="Watch" style="background-color:#263024 ;color: aliceblue;">Watch</option>
                                     <option value="Sunglasses" style="background-color:#263024 ;color: aliceblue;">Sunglasses</option>
@@ -220,8 +246,8 @@ $username = $_SESSION['admin_username'];
                                 </select>
                             </div>
                             <div class="input-group mb-3">
-                                <label class="input-group-text" for="inputGroupSelect01" name="p_colour">Color</label>
-                                <select class="form-select" id="inputGroupSelect01">
+                                <label class="input-group-text" for="inputGroupSelect01">Color</label>
+                                <select class="form-select" id="inputGroupSelect01" name="p_color">
                                     <option selected>Choose...</option>
                                     <option value="Blue">Blue</option>
                                     <option value="Red">Red</option>
@@ -250,14 +276,14 @@ $username = $_SESSION['admin_username'];
                                 <input type="file" class="form-control" id="inputGroupFile02" name="p_img2" required>
                             </div>
                             <div class="input-group mb-3">
-                                <input type="file" class="form-control" id="inputGroupFile02" name="p_img3">
+                                <input type="file" class="form-control" id="inputGroupFile02" name="p_img3" required>
                             </div>
                             <div class="input-group mb-3">
-                                <input type="file" class="form-control" id="inputGroupFile02" name="p_img4">
+                                <input type="file" class="form-control" id="inputGroupFile02" name="p_img4" required>
                             </div>
 
                             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                                <button class="btn btn-warning" type="submit" name="update">Add Product</button>
+                                <button class="btn btn-warning" type="submit" name="add_product">Add Product</button>
                             </div>
 
                         </form>
@@ -271,6 +297,9 @@ $username = $_SESSION['admin_username'];
         </div>
     </div>
 
+    <?php
+    include('back_to_top.php');
+    ?>
 
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>

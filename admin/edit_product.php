@@ -1,5 +1,6 @@
 <?php
 include('../db/connect.php');
+include('../backend/common_function.php');
 session_start();
 
 $username = $_SESSION['admin_username'];
@@ -57,51 +58,48 @@ if (isset($_GET['id'])) {
 
             </li>
             <li>
-                <a href="" class="active">
+                <a href="products.php">
                     <i class="fa-thin fa"></i>
-                    <i class='bx bx-cart-alt'></i>
+                    <?php
+                    $product_quantity = ProductQuantity();
+                    if ($product_quantity > 0) {
+                        echo "<i class='bx bx-cart-alt bx-flashing' style='color:#f0f238' ><sup>!</sup></i>";
+                    } else {
+                        echo "<i class='bx bx-cart-alt'></i>";
+                    }
+                    ?>
+
                     <!-- <i class='bx bxs-cart-download bx-tada' style='color:#fffcfc'></i> -->
-                    <span class="links_name">Products</span>
+                    <span class="links_name">View Products</span>
                 </a>
 
             </li>
             <li>
                 <a href="view_orders.php">
                     <i class="fa-thin fa"></i>
-                    <i class='bx bxs-cart-download bx-tada' style='color:#fffcfc'></i>
+                    <?php
+                    $orders = PendingOrders();
+                    if ($orders > 0) {
+                        echo "<i class='bx bxs-cart-download bx-tada' style='color:#fffcfc'><sup>$orders</sup></i>";
+                    } else {
+                        echo "<i class='bx bxs-cart-download' style='color:#fffcfc'><sup>$orders</sup></i>";
+                    }
+                    ?>
+                    <!-- <i class='bx bxs-cart-download bx-tada' style='color:#fffcfc'><sup><?php echo PendingOrders(); ?></sup></i> -->
                     <span class="links_name">Pending Orders</span>
                 </a>
 
             </li>
-
             <li>
-                <a href="#">
+                <a href="view_admins.php">
                     <i class="fa-thin fa"></i>
-                    <i class='bx bxs-category bx-rotate-180' style='color:#fcfafa'></i>
-                    <span class="links_name">Catagories</span>
+                    <i class='bx bx-user-check' style='color:#ffffff'></i>
+                    <span class="links_name">View Admins</span>
                 </a>
 
             </li>
             <li>
-                <a href="#">
-                    <i class="fa-thin fa"></i>
-                    <i class='bx bxs-key bx-rotate-180' style='color:#fcfafa'></i>
-                    <span class="links_name">Change Password</span>
-                </a>
-
-            </li>
-            <li>
-                <a href="#" class="warning">
-                    <i class="fa-thin fa"></i>
-                    <i class='bx bx-trash bx-flashing' style='color:#ffffff'></i>
-                    <span class="links_name">Delete Account</span>
-                </a>
-
-            </li>
-
-
-            <li>
-                <a href="#">
+                <a href="setting.php">
                     <i class="fa-thin fa"></i>
                     <i class='bx bx-cog bx-spin' style='color:#ffffff'></i>
                     <span class="links_name">Setting</span>
@@ -120,73 +118,64 @@ if (isset($_GET['id'])) {
         </ul>
     </div>
     <section class="home-section">
-        <div class="text">Products</div>
-        <div class="text-2">
+        <div class="text">Edit Products</div>
+        <div class="edit">
 
-            <section class="vh-100 bg-image addproduct">
+            <section class="edit_section">
 
+                <div class="edit_form">
+                    <!--  -->
+                    <form action="update_product.php" class="form-container" method="post" enctype="multipart/form-data">
 
-                <!--  -->
-                <form action="update_product.php" method="post">
-
-                    <div class="form-outline mb-1">
+                        <div class="input-group mb-1">
+                            <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Product Name" name="p_name" value="<?php echo $p_name ?>" required>
+                        </div>
+                        <!-- <div class="form-outline mb-1">
                         <input type="text" id="name" placeholder="Product Name" name="p_name" class="form-control form-control-m" value="<?php echo $p_name ?>" />
 
-                    </div>
-                    <div class="form-outline mb-1">
-                        <input type="text" id="details" placeholder="Product details" name="p_details" class="form-control form-control-m" value="<?php echo $p_details ?>" />
-                    </div>
-
-
-                    <div class="form-outline mb-1">
-                        <input type="number" placeholder="price" id="price" name="p_price" class="form-control form-control-m" value="<?php echo $p_price ?>" />
-                    </div>
-
-                    <div class="form-outline mb-1">
-                        <input type="number" placeholder="Products quantity" id="quantity" name="p_quantity" class="form-control form-control-m" value="<?php echo $p_quantity ?>" />
-
-
-
-                    </div>
-                    <div class="form-outline mb-1">
-                        <input type="text" placeholder="Search keyword" id="" name="p_keyword" class="form-control form-control-m" value="<?php echo $p_keyword ?>" />
-
-                    </div>
-                    <div class="form-outline mb-1">
-                        <div class="col-md-9 pe-5">
-
-                            <input class="form-control form-control-m" id="formFileLg" type="file" name="p_img" required />
+                    </div> -->
+                        <div class="input-group mb-1">
+                            <textarea class="form-control" aria-label="With textarea" placeholder="Product details" name="p_details" required><?php echo $p_details ?></textarea>
                         </div>
-                    </div>
+                        <!-- <div class="form-outline mb-1">
+                            <input type="text" id="details" placeholder="Product details" name="p_details" class="form-control form-control-m" value="<?php echo $p_details ?>" />
+                        </div> -->
 
-                    <div class="form-outline mb-1">
-                        <div class="col-md-9 pe-5">
 
-                            <input class="form-control form-control-m" id="formFileLg" type="file" name="p_img1" required />
+                        <div class="form-outline mb-1">
+                            <input type="number" placeholder="price" id="price" name="p_price" class="form-control form-control-m" value="<?php echo $p_price ?>" />
                         </div>
-                    </div>
 
-                    <div class="form-outline mb-1">
-                        <div class="col-md-9 pe-5">
+                        <div class="form-outline mb-1">
+                            <input type="number" placeholder="Products quantity" id="quantity" name="p_quantity" class="form-control form-control-m" value="<?php echo $p_quantity ?>" />
 
-                            <input class="form-control form-control-m" id="formFileLg" type="file" name="p_img2" required />
+
+
                         </div>
-                    </div>
+                        <div class="form-outline mb-1">
+                            <input type="text" placeholder="Search keyword" id="" name="p_keyword" class="form-control form-control-m" value="<?php echo $p_keyword ?>" />
 
-                    <div class="form-outline mb-1">
-                        <div class="col-md-9 pe-5">
-
-                            <input class="form-control form-control-m" id="formFileLg" type="file" name="p_img3" required />
                         </div>
-                    </div>
-                    <input type="hidden" name="id" value="<?php echo $p_id; ?>">
-                    <div class="d-flex justify-content-end pt-3">
-                        <button type="submit" class="btn btn-light btn-lg" name="Reset">Reset All</button>
-                        <button type="submit" class="btn btn-warning btn-lg ms-2" name="Update">Update</button>
-                    </div>
-                </form>
-                <!--  -->
-
+                        <div class="input-group mb-1">
+                            <input type="file" class="form-control" id="inputGroupFile02" name="p_img" required>
+                        </div>
+                        <div class="input-group mb-1">
+                            <input type="file" class="form-control" id="inputGroupFile02" name="p_img1" required>
+                        </div>
+                        <div class="input-group mb-1">
+                            <input type="file" class="form-control" id="inputGroupFile02" name="p_img2" required>
+                        </div>
+                        <div class="input-group mb-1">
+                            <input type="file" class="form-control" id="inputGroupFile02" name="p_img3" required>
+                        </div>
+                        <input type="hidden" name="id" value="<?php echo $p_id; ?>">
+                        <div class="d-flex justify-content-center pt-3">
+                            <!-- <button type="submit" class="btn btn-light btn-lg" name="Reset">Reset All</button> -->
+                            <button type="submit" class="btn btn-warning btn-lg ms-2" name="Update">Update</button>
+                        </div>
+                    </form>
+                    <!--  -->
+                </div>
 
 
             </section>

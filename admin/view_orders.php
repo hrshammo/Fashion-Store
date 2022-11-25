@@ -1,5 +1,6 @@
 <?php
 include('../db/connect.php');
+include('../backend/common_function.php');
 session_start();
 $username = $_SESSION['admin_username'];
 
@@ -43,16 +44,32 @@ $username = $_SESSION['admin_username'];
             <li>
                 <a href="products.php">
                     <i class="fa-thin fa"></i>
-                    <i class='bx bx-cart-alt'></i>
+                    <?php
+                    $product_quantity = ProductQuantity();
+                    if ($product_quantity > 0) {
+                        echo "<i class='bx bx-cart-alt bx-flashing' style='color:#f0f238' ><sup>!</sup></i>";
+                    } else {
+                        echo "<i class='bx bx-cart-alt'></i>";
+                    }
+                    ?>
+
                     <!-- <i class='bx bxs-cart-download bx-tada' style='color:#fffcfc'></i> -->
                     <span class="links_name">View Products</span>
                 </a>
 
             </li>
             <li>
-                <a href="" class="active">
+                <a href="view_orders.php" class="active">
                     <i class="fa-thin fa"></i>
-                    <i class='bx bxs-cart-download bx-tada' style='color:#fffcfc'></i>
+                    <?php
+                    $orders = PendingOrders();
+                    if ($orders > 0) {
+                        echo "<i class='bx bxs-cart-download bx-tada' style='color:#fffcfc'><sup>$orders</sup></i>";
+                    } else {
+                        echo "<i class='bx bxs-cart-download' style='color:#fffcfc'><sup>$orders</sup></i>";
+                    }
+                    ?>
+                    <!-- <i class='bx bxs-cart-download bx-tada' style='color:#fffcfc'><sup><?php echo PendingOrders(); ?></sup></i> -->
                     <span class="links_name">Pending Orders</span>
                 </a>
 
@@ -66,25 +83,10 @@ $username = $_SESSION['admin_username'];
                 </a>
 
             </li>
-            <li>
-                <a href="#">
-                    <i class="fa-thin fa"></i>
-                    <i class='bx bxs-key bx-rotate-180' style='color:#fcfafa'></i>
-                    <span class="links_name">Change Password</span>
-                </a>
 
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fa-thin fa"></i>
-                    <i class='bx bx-trash' style='color:#ffffff'></i>
-                    <span class="links_name">Delete Account</span>
-                </a>
-
-            </li>
 
             <li>
-                <a href="#">
+                <a href="setting.php">
                     <i class="fa-thin fa"></i>
                     <i class='bx bx-cog bx-spin' style='color:#ffffff'></i>
                     <span class="links_name">Setting</span>
@@ -115,6 +117,7 @@ $username = $_SESSION['admin_username'];
                         <th scope="col">Customer Email</th>
                         <th scope="col">Invoice Number</th>
                         <th scope="col">Quantity</th>
+                        <th scope="col">Available</th>
                         <th scope="col">Status</th>
                         <th colspan="2">Operation</th>
                     </tr>
@@ -123,7 +126,8 @@ $username = $_SESSION['admin_username'];
                     <?php
                     $i = 0;
                     $count = 1;
-                    $query = "select * from pending_orders where order_status = 'pending'";
+                    $type = "pending";
+                    $query = "select * from pending_orders where order_status = '$type'";
 
                     $result = mysqli_query($conn, $query);
                     if ($result) {
@@ -131,8 +135,6 @@ $username = $_SESSION['admin_username'];
                             $order_id = $data['order_id'];
                             $user_id = $data['user_id'];
                             $product_id = $data['product_id'];
-                            $split = explode(",", $product_id);
-                            $index = count($split);
                             $invoice = $data['invoice_number'];
                             $quantity = $data['quantity'];
                             $status = $data['order_status'];
@@ -143,15 +145,14 @@ $username = $_SESSION['admin_username'];
                                     $c_name = $user_row['name'];
                                     $c_email = $user_row['user_email'];
 
-                                    while ($i < $index - 1) {
-                                        $id = $split[$i];
-                                        $product_sql = "select * from product where p_id=$id";
-                                        $product_res = mysqli_query($conn, $product_sql);
-                                        if ($product_res) {
-                                            while ($product_row = mysqli_fetch_array($product_res)) {
-                                                $p_img = $product_row['p_img1'];
-                                                $p_name = $product_row['p_name'];
-
+                                    $product_sql = "select * from product where p_id=$product_id";
+                                    $product_res = mysqli_query($conn, $product_sql);
+                                    if ($product_res) {
+                                        while ($product_row = mysqli_fetch_array($product_res)) {
+                                            $p_img = $product_row['p_img1'];
+                                            $p_quantity = $product_row['p_quantity'];
+                                            $p_name = $product_row['p_name'];
+                                            if ($p_quantity > 0) {
                                                 echo '<tr>
                             <th scope="row">' . $count++ . '</th>
                             <td><img src="../page/Men/img/' . $p_img . '" alt="" style="width:100px; height:100px; object-fit:contain; !important"></img></td>
@@ -159,18 +160,37 @@ $username = $_SESSION['admin_username'];
                             <td>' . $c_name . '</td>
                             <td>' . $c_email . '</td>
                             <td>' . $invoice . '</td>
-                            <td>' . rand(1, 3) . '</td>
+                            <td>' . $quantity . '</td>
+                            <td>' . $p_quantity . '</td>
                             <td>' . $status . '</td>
                             <td>
-                            <a href="accept_order.php?id=' . $order_id . '" style="margin-right: 20px !important"><i class="bx bxs-message-rounded-edit" ></i></a>
-                            <a href="delete_order.php?id=' . $order_id . '" style="margin-left: 20px !important"><i class="bx bxs-trash" style="color:#3a3a3a" ></i></a>
+                            <a href="accept_order.php?id=' . $order_id . "/" . $product_id . "/" . $quantity . ' " style=""><i class="fas fa-check-circle fa-2x text-success"></i></i></a>
+                            
+                            </td>
+                            <td>
+                            <a href="delete_order.php?id=' . $order_id . '" style=""><i class="bx bx-x-circle fa-2x" style="color:#f80e0e" ></i></a>
+                            </td>
+                        </tr>';
+                                            } else {
+                                                echo '<tr>
+                            <th scope="row">' . $count++ . '</th>
+                            <td><img src="../page/Men/img/' . $p_img . '" alt="" style="width:100px; height:100px; object-fit:contain; !important"></img></td>
+                            <td>' . $p_name . '</td>
+                            <td>' . $c_name . '</td>
+                            <td>' . $c_email . '</td>
+                            <td>' . $invoice . '</td>
+                            <td>' . $quantity . '</td>
+                            <td>' . $p_quantity . '</td>
+                            <td>' . $status . '</td>
+                            
+                            <td>
+                            <a href="delete_order.php?id=' . $order_id . '" style="margin-left: 20px !important"><i class="bx bx-x-circle fa-2x" style="color:#f80e0e" ></i></a>
                             </td>
                         </tr>';
                                             }
-                                        } else {
-                                            die(mysqli_error($conn));
                                         }
-                                        $i++;
+                                    } else {
+                                        die(mysqli_error($conn));
                                     }
                                 }
                             } else {

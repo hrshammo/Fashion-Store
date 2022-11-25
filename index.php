@@ -14,7 +14,7 @@ include 'backend/common_function.php';
 
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link rel="stylesheet" href="style.css">
-
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <link rel="shortcut icon" href="img/fab.png" type="image/x-icon">
 
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
@@ -32,7 +32,6 @@ include 'backend/common_function.php';
     <div class="logo"><a href="index.php"><img src="img/icon.png" alt="" srcset=""></a></div>
     <div>
       <div class="uper">
-
 
         <form action="" method="get">
           <div class="dropdown">
@@ -79,7 +78,7 @@ include 'backend/common_function.php';
               <a href="page/Men/topware.php?ctg=Beauty/Skincare,Bath and Body">Skincare,Bath and Body</a>
               <a href="page/Men/topware.php?ctg=Beauty/Haircare">Haircare</a>
               <a href="page/Men/topware.php?ctg=Beauty/Fragrances">Fragrances</a>
-              <a href="page/Men/topware.php?ctg=Beauty/Men's Grooming">Men's Grooming</a>
+              <a href="page/Men/topware.php?ctg=Beauty/Men Grooming">Men Grooming</a>
               <a href="page/Men/topware.php?ctg=Beauty/Beauty Gift">Beauty Gift</a>
 
             </div>
@@ -150,9 +149,10 @@ include 'backend/common_function.php';
 
           <div class="text-center">
             <p>Not a member? <a href="page/reg.php">Register</a></p>
-            <p>or sign up with:</p>
+            <!-- <p>or sign up with:</p>
             <button type="button" class="btn btn-link btn-floating mx-1">
               <i class="fab fa-facebook-f"></i>
+              <i class='bx bxl-facebook-circle fa-5x' style='color:#4b5af6'></i>
             </button>
 
             <button type="button" class="btn btn-link btn-floating mx-1">
@@ -165,7 +165,7 @@ include 'backend/common_function.php';
 
             <button type="button" class="btn btn-link btn-floating mx-1">
               <i class="fab fa-github"></i>
-            </button>
+            </button> -->
           </div>
         </form>
 
@@ -231,7 +231,7 @@ include 'backend/common_function.php';
               <h3>' . $p_name . '</h3>
               <h4>' . CURRENCY . $p_price . '</h4>
           </a>
-          <a href="add_to_cart.php?add_to_cart=' . $p_id . '"><button class="add_to_cart"> Add to Cart </button></a>
+          <a href="add_to_cart.php?add_to_cart=' . $p_id . "/" . $p_price . '"><button class="add_to_cart"> Add to Cart </button></a>
         </div>';
         }
       } else {
@@ -267,34 +267,48 @@ include 'backend/common_function.php';
 
       </div>
     </a>
-    <div class="c_img_bg">
-      <img src="img/woman.png" alt="">
-      <h3>Woman</h3>
-    </div>
-    <div class="c_img_bg">
-      <img class="bag_img" src="img/bag.png" alt="">
-      <h3>Bagpack</h3>
-    </div>
-    <div class="c_img_bg">
-      <img src="img/shoes.png" alt="">
-      <h3>shoes</h3>
-    </div>
-    <div class="c_img_bg ">
-      <img src="img/asscories.png" alt="">
-      <h3>Asscories</h3>
-    </div>
-    <div class="c_img_bg">
-      <img src="img/watch.png" alt="">
-      <h3>Wareable</h3>
-    </div>
-    <div class="c_img_bg">
-      <img src="img/sunglass1.png" alt="">
-      <h3>Sunglass</h3>
-    </div>
-    <div class="c_img_bg ">
-      <img class="fitness" src="img/fitness1.png" alt="">
-      <h3>Fitness</h3>
-    </div>
+    <a href="page/Men/all_product.php?ctg=Woman">
+      <div class="c_img_bg">
+        <img src="img/woman.png" alt="">
+        <h3>Woman</h3>
+      </div>
+    </a>
+    <a href="page/Men/all_product.php?ctg=Bagpack">
+      <div class="c_img_bg">
+        <img class="bag_img" src="img/bag.png" alt="">
+        <h3>Bagpack</h3>
+      </div>
+    </a>
+    <a href="page/Men/all_product.php?ctg=shoes">
+      <div class="c_img_bg">
+        <img src="img/shoes.png" alt="">
+        <h3>shoes</h3>
+      </div>
+    </a>
+    <a href="page/Men/all_product.php?ctg=Asscories">
+      <div class="c_img_bg ">
+        <img src="img/asscories.png" alt="">
+        <h3>Asscories</h3>
+      </div>
+    </a>
+    <a href="page/Men/all_product.php?ctg=Wareable">
+      <div class="c_img_bg">
+        <img src="img/watch.png" alt="">
+        <h3>Wareable</h3>
+      </div>
+    </a>
+    <a href="page/Men/all_product.php?ctg=Sunglass">
+      <div class="c_img_bg">
+        <img src="img/sunglass1.png" alt="">
+        <h3>Sunglass</h3>
+      </div>
+    </a>
+    <a href="page/Men/all_product.php?ctg=Fitness">
+      <div class="c_img_bg ">
+        <img class="fitness" src="img/fitness1.png" alt="">
+        <h3>Fitness</h3>
+      </div>
+    </a>
 
 
   </div>

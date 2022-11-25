@@ -3,7 +3,10 @@ include 'backend/common_function.php';
 include 'db/connect.php';
 
 if (isset($_GET['add_to_cart'])) {
-    $p_id = $_GET['add_to_cart'];
+    $data = $_GET['add_to_cart'];
+    $split = explode("/", $data);
+    $p_id = $split[0];
+    $price = $split[1];
     $ip = getIpaddress();
     $quantity = 1;
 
@@ -12,7 +15,7 @@ if (isset($_GET['add_to_cart'])) {
     $count_row = mysqli_num_rows($result);
     if ($count_row == 0) {
 
-        $sql = "insert into cart_details (product_id,ip_address,quantity) values('$p_id','$ip','$quantity')";
+        $sql = "insert into cart_details (product_id,price,ip_address,quantity) values('$p_id','$price','$ip','$quantity')";
         $res = mysqli_query($conn, $sql);
         if ($res) {
             echo "<script>alert('Item added to cart')</script>";

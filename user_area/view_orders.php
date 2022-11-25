@@ -1,5 +1,6 @@
 <?php
 include('../db/connect.php');
+include('../backend/common_function.php');
 session_start();
 if (isset($_GET['type'])) {
     $type = $_GET['type'];
@@ -10,6 +11,8 @@ $sql = "select * from user_info where username='$username'";
 $res = mysqli_query($conn, $sql);
 $row = mysqli_fetch_array($res);
 $u_id = $row['user_id'];
+
+$orders = PendingOrders();
 ?>
 
 <!DOCTYPE html>
@@ -26,6 +29,7 @@ $u_id = $row['user_id'];
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>HRX | View Orders</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="shortcut icon" href="../img/fab.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 </head>
@@ -66,7 +70,7 @@ $u_id = $row['user_id'];
             <li>
                 <a href='view_orders.php?type=pending'>
                     <i class='fa-thin fa'></i>
-                    <i class='bx bxs-cart-download bx-tada' style='color:#fffcfc'></i>
+            <i class='bx bxs-cart-download bx-tada' style='color:#fffcfc'></i>
                     <span class='links_name'>Pending Orders</span>
                 </a>
             </li>";
@@ -89,33 +93,11 @@ $u_id = $row['user_id'];
             }
             ?>
 
-            <li>
-                <a href="#">
-                    <i class="fa-thin fa"></i>
-                    <i class='bx bx-chat'></i>
-                    <span class="links_name">Messages</span>
-                </a>
 
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fa-thin fa"></i>
-                    <i class='bx bxs-key bx-rotate-180' style='color:#fcfafa'></i>
-                    <span class="links_name">Change Password</span>
-                </a>
 
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fa-thin fa"></i>
-                    <i class='bx bx-trash' style='color:#ffffff'></i>
-                    <span class="links_name">Delete Account</span>
-                </a>
-
-            </li>
 
             <li>
-                <a href="#">
+                <a href="setting.php">
                     <i class="fa-thin fa"></i>
                     <i class='bx bx-cog bx-spin' style='color:#ffffff'></i>
                     <span class="links_name">Setting</span>
@@ -140,19 +122,20 @@ $u_id = $row['user_id'];
                 <thead class="thead-light">
                     <tr>
                         <th scope="col">#</th>
+                        <th scope="col">Product Image</th>
                         <th scope="col">Invoice Number</th>
-                        <th scope="col">Total Products</th>
                         <th scope="col">Amount</th>
                         <th scope="col">Status</th>
-                        <?php
-                        if (isset($_GET['type'])) {
-                            $type = $_GET['type'];
+                        <th scope="col">Operation</th>
+                        <!-- <?php
+                                if (isset($_GET['type'])) {
+                                    $type = $_GET['type'];
 
-                            if ($type == "pending") {
-                                echo '<th scope="col">Operation</th>';
-                            }
-                        }
-                        ?>
+                                    if ($type == "pending") {
+                                        echo '<th scope="col">Operation</th>';
+                                    }
+                                }
+                                ?> -->
 
                     </tr>
                 </thead>
@@ -167,12 +150,23 @@ $u_id = $row['user_id'];
                             $result = mysqli_query($conn, $query);
                             if ($result) {
                                 while ($data = mysqli_fetch_array($result)) {
+                                    $p_id = $data['product_id'];
+                                    $invoice = $data['invoice_number'];
+                                    $sql = "select * from product where p_id='$p_id'";
+                                    $res = mysqli_query($conn, $sql);
+                                    $row = mysqli_fetch_array($res);
+
+                                    $p_img = $row['p_img1'];
+
                                     echo '<tr>
                             <th scope="row">' . $count++ . '</th>
+                            <td><img src="../page/Men/img/' . $p_img . '" alt="error" style="width:100px; height:100px; object-fit:contain; !important"></img></td>
                             <td>' . $data['invoice_number'] . '</td>
-                            <td>' . $data['total_products'] . '</td>
                             <td>' . $data['amount'] . '</td>
                             <td>' . $data['order_status'] . '</td>
+                            <td>
+                            <a href="remove_order.php?id=' . $p_id . "/" . $invoice . '" style="margin-left: 30px !important" ><i class="bx bx-trash fa-2x" style="color:#f80e0e" ></i></a>
+                            </td>
                         </tr>';
                                 }
                             }
@@ -181,16 +175,23 @@ $u_id = $row['user_id'];
                             $result = mysqli_query($conn, $query);
                             if ($result) {
                                 while ($data = mysqli_fetch_array($result)) {
+                                    $p_id = $data['product_id'];
+                                    $sql = "select * from product where p_id='$p_id'";
+                                    $res = mysqli_query($conn, $sql);
+                                    $row = mysqli_fetch_array($res);
+
+                                    $p_img = $row['p_img1'];
                                     echo '<tr>
-                            <th scope="row">' . $count++ . '</th>
-                            <td>' . $data['invoice_number'] . '</td>
-                            <td>' . $data['total_products'] . '</td>
-                            <td>' . $data['amount'] . '</td>
-                            <td>' . $data['order_status'] . '</td>
-                            <td>
-                            <a href="delete_order.php?id=' . $u_id . '" style="margin-left: 30px !important"><i class="bx bxs-trash" style="color:#3a3a3a" ></i></a>
-                            </td>
-                            </tr>';
+                                            <th scope="row">' . $count++ . '</th>
+                                            <td><img src="../page/Men/img/' . $p_img . '" alt="error" style="width:100px; height:100px; object-fit:contain; !important"></img></td>
+                                            <td>' . $data['invoice_number'] . '</td>
+                                            <td>' . $data['amount'] . '</td>
+                                            <td>' . $data['order_status'] . '</td>
+                                            <td>
+                                            <a href="delete_order.php?id=' . $p_id . '" style="margin-left: 30px !important">
+                                            <i class="bx bx-x-circle fa-2x" style="color:#f80e0e" ></i></a>
+                                            </td>
+                                        </tr>';
                                 }
                             }
                         }

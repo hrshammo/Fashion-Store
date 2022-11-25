@@ -80,34 +80,10 @@ if ($user_img == "NULL") {
                 </a>
 
             </li>
-            <li>
-                <a href="#">
-                    <i class="fa-thin fa"></i>
-                    <i class='bx bx-chat'></i>
-                    <span class="links_name">Messages</span>
-                </a>
-
-            </li>
-            <li>
-                <a href="#">
-                    <i class="fa-thin fa"></i>
-                    <i class='bx bxs-key bx-rotate-180' style='color:#fcfafa'></i>
-                    <span class="links_name">Change Password</span>
-                </a>
-
-            </li>
-            <li>
-                <a href="#" class="warning">
-                    <i class="fa-thin fa"></i>
-                    <i class='bx bx-trash bx-flashing' style='color:#ffffff'></i>
-                    <span class="links_name">Delete Account</span>
-                </a>
-
-            </li>
 
 
             <li>
-                <a href="#">
+                <a href="setting.php">
                     <i class="fa-thin fa"></i>
                     <i class='bx bx-cog bx-spin' style='color:#ffffff'></i>
                     <span class="links_name">Setting</span>
@@ -125,6 +101,9 @@ if ($user_img == "NULL") {
             </li>
         </ul>
     </div>
+
+
+
     <section class="home-section">
         <div class="text">Profile</div>
         <div class="text-2">
@@ -134,7 +113,7 @@ if ($user_img == "NULL") {
                         <div class="col-lg-4">
                             <div class="card mb-4">
                                 <div class="card-body text-center">
-                                    <img src="../img/<?php echo $user_img; ?>" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
+                                    <img src="img/<?php echo $user_img; ?>" alt="avatar" class="rounded-circle img-fluid" style="width: 150px;">
                                     <h5 class="my-3"><?php echo $name; ?></h5>
                                     <p class="text-muted mb-1"><?php echo $username; ?></p>
                                     <p class="text-muted mb-4"><?php echo $email; ?></p>
@@ -220,7 +199,7 @@ if ($user_img == "NULL") {
                 </div>
                 <div class="modal-body">
                     <div class="form-popup" id="myForm">
-                        <form action="update_profile.php" class="form-container" method="post">
+                        <form action="update_profile.php" class="form-container" method="post" enctype="multipart/form-data">
 
                             <div class="input-group mb-3">
                                 <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Full Name" name="name" value="<?php echo $name; ?>" required>

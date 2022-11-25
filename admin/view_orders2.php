@@ -1,5 +1,6 @@
 <?php
 include('../db/connect.php');
+include('../backend/common_function.php');
 session_start();
 $username = $_SESSION['admin_username'];
 

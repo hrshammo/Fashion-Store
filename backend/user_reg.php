@@ -19,7 +19,7 @@ if (isset($_POST['Register'])) {
 
         // $check_pass = password_verify($pass,$encrypt_pass);
     }
-    $sql = "insert into user_info (name,username,user_email,user_password,user_ip,user_address,user_address2,user_mobile) values('$name','$username','$email','$encrypt_pass','$ip','$address','$address2','$number')";
+    $sql = "insert into user_info (name,username,user_email,user_password,user_ip,user_address,user_address2,user_mobile,user_img) values('$name','$username','$email','$encrypt_pass','$ip','$address','$address2','$number','NULL')";
     $res = mysqli_query($conn, $sql);
     if ($res) {
         $_SESSION['username'] = $username;

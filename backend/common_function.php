@@ -38,7 +38,7 @@ function getAllProducts()
              <h3>' . $product_name . '</h3>
              <h4>৳.' . $product_price . '</h4>
          </a>
-         <a href="/index.php?add_to_cart=' . $product_id . '"><button class="add_to_cart"> Add to Cart </button></a>
+         <a href="/index.php?add_to_cart=' . $product_id . "/" . $product_price . '"><button class="add_to_cart"> Add to Cart </button></a>
        </div></form>';
       }
    } else {
@@ -69,7 +69,7 @@ function getSearchedProducts()
              <h3>' . $product_name . '</h3>
              <h4>৳.' . $product_price . '</h4>
          </a>
-         <a href="/add_to_cart.php?add_to_cart=' . $product_id . '"><button class="add_to_cart"> Add to Cart </button></a>
+         <a href="/add_to_cart.php?add_to_cart=' . $product_id . "/" . $product_price . '"><button class="add_to_cart"> Add to Cart </button></a>
        </div>';
          }
       } else {
@@ -106,45 +106,11 @@ function getProductsByCategory()
              <h4>৳.' . $product_price . '</h4>
          </a>
       
-         <a href="../../add_to_cart.php?add_to_cart=' . $product_id . '"><button class="add_to_cart"> Add to Cart </button></a>
+         <a href="../../add_to_cart.php?add_to_cart=' . $product_id . "/" . $product_price . '"><button class="add_to_cart"> Add to Cart </button></a>
        </div>';
          }
       } else {
          die(mysqli_error($conn));
-      }
-   }
-}
-
-function AddtoCart()
-{
-   $conn = mysqli_connect('localhost', 'root', '', 'eco_admin');
-   if (isset($_GET['add_to_cart'])) {
-      $product_id = $_GET['add_to_cart'];
-      $ip = getIpaddress();
-      $quantity = 1;
-
-      $check_sql = "select * from cart_details where product_id='$product_id' and ip_address='$ip'";
-      $result = mysqli_query($conn, $check_sql);
-      $count_row = mysqli_num_rows($result);
-      if ($count_row == 0) {
-
-         $sql = "insert into cart_details (product_id,ip_address,quantity) values('$product_id','$ip','$quantity')";
-         $res = mysqli_query($conn, $sql);
-         if ($res) {
-            echo "<script>alert('Item added to cart')</script>";
-            echo "<script>window.open('/index.php','_self')</script>";
-            //         echo '<div class="alert alert-success" role="alert">
-            //         <strong>Success..<br></strong> Item added to cart
-            //  </div>';
-         } else {
-            die(mysqli_error($conn));
-         }
-      } else {
-         echo "<script>alert('This item  is already present inside cart')</script>";
-         echo "<script>window.open('/index.php','_self')</script>";
-         //       echo '<div class="alert alert-warning" role="alert">
-         //    <strong>Success..<br></strong> This item  is already present inside cart
-         //  </div>';
       }
    }
 }
@@ -158,4 +124,24 @@ function ItemInCart()
    $count_cart_item = mysqli_num_rows($res);
 
    return $count_cart_item;
+}
+
+function PendingOrders()
+{
+   $conn = mysqli_connect('localhost', 'root', '', 'eco_admin');
+   $sql = "select * from pending_orders  where order_status = 'pending'";
+   $res = mysqli_query($conn, $sql);
+   $pending_order = mysqli_num_rows($res);
+
+   return $pending_order;
+}
+
+function ProductQuantity()
+{
+   $conn = mysqli_connect('localhost', 'root', '', 'eco_admin');
+   $sql = "select * from product  where p_quantity <= '0'";
+   $res = mysqli_query($conn, $sql);
+   $product_quantity = mysqli_num_rows($res);
+
+   return $product_quantity;
 }

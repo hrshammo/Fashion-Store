@@ -191,9 +191,26 @@
   margin-left: 70px;
   left: 30px;
 }
+.add_product_btn {
+  margin-left: 55rem;
+}
 .home-section .text-2{
   font-size: 15px;
   margin-top: 60px;
   margin-left: 70px;
   margin-right: 70px;
+}
+.home-section .edit{
+  font-size: 15px;
+  display: flex;
+  justify-content: center;
+  margin-top: 40px;
+}
+.edit_form{
+margin: 20px 20px;
+}
+.edit_section {
+  display: inline-block;
+  background-color: rgb(224 224 224);
+  width: 40rem;
 }

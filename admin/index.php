@@ -215,10 +215,16 @@ if (isset($_POST['login'])) {
     $res = mysqli_query($conn, $sql);
 
     if ($res) {
-        $_SESSION['admin_username'] = $username;
-        echo "<script>window.open('profile.php','_self')</script>";
+
+        $row = mysqli_num_rows($res);
+        if ($row == 1) {
+            $_SESSION['admin_username'] = $username;
+            echo "<script>window.open('profile.php','_self')</script>";
+        } else {
+            echo "<script>alert('Login Failed')</script>";
+        }
     } else {
-        echo "<script>alert('Login Failed')</script>";
+        die(mysqli_error($conn));
     }
 }
 ?>

@@ -1,5 +1,6 @@
 <?php
 include('../db/connect.php');
+include('../backend/common_function.php');
 session_start();
 
 $username = $_SESSION['admin_username'];
@@ -44,7 +45,7 @@ if ($admin_img == "NULL") {
         </div>
         <ul class="nav-list">
             <li>
-                <a href="#" class="active">
+                <a href="" class="active">
                     <i class="fa-thin fa"></i>
                     <i class='bx bx-user'></i>
                     <span class="links_name">Profile</span>
@@ -54,7 +55,15 @@ if ($admin_img == "NULL") {
             <li>
                 <a href="products.php">
                     <i class="fa-thin fa"></i>
-                    <i class='bx bx-cart-alt'></i>
+                    <?php
+                    $product_quantity = ProductQuantity();
+                    if ($product_quantity > 0) {
+                        echo "<i class='bx bx-cart-alt bx-flashing' style='color:#f0f238' ><sup>!</sup></i>";
+                    } else {
+                        echo "<i class='bx bx-cart-alt'></i>";
+                    }
+                    ?>
+
                     <!-- <i class='bx bxs-cart-download bx-tada' style='color:#fffcfc'></i> -->
                     <span class="links_name">View Products</span>
                 </a>
@@ -63,7 +72,15 @@ if ($admin_img == "NULL") {
             <li>
                 <a href="view_orders.php">
                     <i class="fa-thin fa"></i>
-                    <i class='bx bxs-cart-download bx-tada' style='color:#fffcfc'></i>
+                    <?php
+                    $orders = PendingOrders();
+                    if ($orders > 0) {
+                        echo "<i class='bx bxs-cart-download bx-tada' style='color:#fffcfc'><sup>$orders</sup></i>";
+                    } else {
+                        echo "<i class='bx bxs-cart-download' style='color:#fffcfc'><sup>$orders</sup></i>";
+                    }
+                    ?>
+                    <!-- <i class='bx bxs-cart-download bx-tada' style='color:#fffcfc'><sup><?php echo PendingOrders(); ?></sup></i> -->
                     <span class="links_name">Pending Orders</span>
                 </a>
 
@@ -76,26 +93,10 @@ if ($admin_img == "NULL") {
                 </a>
 
             </li>
-            <li>
-                <a href="#">
-                    <i class="fa-thin fa"></i>
-                    <i class='bx bxs-key bx-rotate-180' style='color:#fcfafa'></i>
-                    <span class="links_name">Change Password</span>
-                </a>
-
-            </li>
-            <li>
-                <a href="#" class="warning">
-                    <i class="fa-thin fa"></i>
-                    <i class='bx bx-trash bx-flashing' style='color:#ffffff'></i>
-                    <span class="links_name">Delete Account</span>
-                </a>
-
-            </li>
 
 
             <li>
-                <a href="#">
+                <a href="setting.php">
                     <i class="fa-thin fa"></i>
                     <i class='bx bx-cog bx-spin' style='color:#ffffff'></i>
                     <span class="links_name">Setting</span>
@@ -122,7 +123,7 @@ if ($admin_img == "NULL") {
                         <div class="col-lg-4">
                             <div class="card mb-4">
                                 <div class="card-body text-center">
-                                    <img src="../img/<?php echo $admin_img; ?>" alt="avatar" class="rounded-circle img-fluid" style="width: 150px; object-fit:contain;">
+                                    <img src="img/<?php echo $admin_img; ?>" alt="avatar" class="rounded-circle img-fluid" style="width: 150px; object-fit:contain;">
                                     <h5 class="my-3"><?php echo $name; ?></h5>
                                     <p class="text-muted mb-1"><?php echo $username; ?></p>
                                     <p class="text-muted mb-4"><?php echo $email; ?></p>
@@ -189,7 +190,7 @@ if ($admin_img == "NULL") {
                 </div>
                 <div class="modal-body">
                     <div class="form-popup" id="myForm">
-                        <form action="update_profile.php" class="form-container" method="post">
+                        <form action="update_profile.php" class="form-container" method="post" enctype="multipart/form-data">
 
                             <div class="input-group mb-3">
                                 <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="Full Name" name="name" value="<?php echo $name; ?>" required>

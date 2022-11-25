@@ -16,6 +16,7 @@ if (isset($_POST['login'])) {
         $_SESSION['username'] = $username;
         echo "<script>window.open('../index.php','_self')</script>";
     } else {
-        echo "<script>alert('Login Failed..\nInvalid Password!')</script>";
+        echo "<script>alert('Invalid Password!')</script>";
+        echo "<script>window.open('../index.php','_self')</script>";
     }
 }
