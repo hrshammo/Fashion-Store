@@ -26,22 +26,21 @@ include '../db/connect.php';
   <script src="js/js_own.js"></script>
 
   <title>HRX | Regestation</title>
+
 </head>
 
-<body>
-
-
-
+<body style="background: rgb(145,230,247);
+background: linear-gradient(90deg, rgba(145,230,247,1) 0%, rgba(210,167,236,1) 100%);">
 
 
 
   <!-- -->
-  <section class="vh-100 bg-image" style="background-image: url('https://mdbcdn.b-cdn.net/img/Photos/new-templates/search-box/img4.webp');">
+  <section class="vh-100 bg-image">
     <div class="mask d-flex align-items-center h-100 gradient-custom-3">
       <div class="container h-100">
         <div class="row d-flex justify-content-center align-items-center h-100">
           <div class="col-12 col-md-9 col-lg-7 col-xl-6">
-            <div class="card" style="border-radius: 15px;">
+            <div class="card" style="border-radius: 15px; background-color:#ffffff4a; margin-top:10px; height:50em;">
               <div class="card-body p-5">
                 <h2 class="text-uppercase text-center mb-5">Create an account</h2>
 
@@ -89,7 +88,8 @@ include '../db/connect.php';
                   </div>
 
                   <div class="d-flex justify-content-center">
-                    <button type="submit" style="background: #f3c6f7;" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" name="Register">Register</button>
+                    <button type="submit" style="background: rgb(145,230,247);
+background: linear-gradient(90deg, rgba(145,230,247,1) 0%, rgba(210,167,236,1) 100%);" class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" name="Register">Register</button>
                   </div>
 
                   <p class="text-center text-muted mt-5 mb-0">Have already an account? <a href="../index.php" class="fw-bold text-body"><u>Login here</u></a></p>
@@ -128,7 +128,7 @@ include '../db/connect.php';
         $res = mysqli_query($conn, $sql);
         if ($res) {
           echo "<script>alert('Registration Successful')</script>";
-          echo "<script>windows.open('reg.php','_self')</script>";
+          echo "<script>window.open('../index.php','_self')</script>";
         } else {
           die(mysqli_error($conn));
         }

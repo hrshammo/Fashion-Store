@@ -443,6 +443,8 @@ footer{
     align-self: left;
     border-radius: 20px;
     margin: 20px;
+    margin-left: 30px;
+
 
  }
  .ctag_u .ctag_img_u:hover{
@@ -496,7 +498,7 @@ font-size: 16px;
     z-index: 8;
     margin-top: 2%;
     width: 45%;
-    height: 380px;
+    height: 500px;
     object-fit: cover;
     float: inherit;
     margin-left: 2%;

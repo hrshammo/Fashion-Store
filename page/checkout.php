@@ -82,7 +82,7 @@ include '../backend/common_function.php';
                             <a href="Men/topware.php?ctg=Beauty/Skincare,Bath and Body">Skincare,Bath and Body</a>
                             <a href="Men/topware.php?ctg=Beauty/Haircare">Haircare</a>
                             <a href="Men/topware.php?ctg=Beauty/Fragrances">Fragrances</a>
-                            <a href="Men/topware.php?ctg=Beauty/Men's Grooming">Men's Grooming</a>
+                            <a href="Men/topware.php?ctg=Beauty/Men Grooming">Men Grooming</a>
                             <a href="Men/topware.php?ctg=Beauty/Beauty Gift">Beauty Gift</a>
 
                         </div>

@@ -157,26 +157,30 @@ if (isset($_GET['id'])) {
 
                         </div>
                         <div class="input-group mb-1">
-                            <input type="file" class="form-control" id="inputGroupFile02" name="p_img" required>
+                            <input type="file" class="form-control" id="inputGroupFile02" name="p_img">
                         </div>
                         <div class="input-group mb-1">
-                            <input type="file" class="form-control" id="inputGroupFile02" name="p_img1" required>
+                            <input type="file" class="form-control" id="inputGroupFile02" name="p_img1">
                         </div>
                         <div class="input-group mb-1">
-                            <input type="file" class="form-control" id="inputGroupFile02" name="p_img2" required>
+                            <input type="file" class="form-control" id="inputGroupFile02" name="p_img2">
                         </div>
                         <div class="input-group mb-1">
-                            <input type="file" class="form-control" id="inputGroupFile02" name="p_img3" required>
+                            <input type="file" class="form-control" id="inputGroupFile02" name="p_img3">
                         </div>
                         <input type="hidden" name="id" value="<?php echo $p_id; ?>">
                         <div class="d-flex justify-content-center pt-3">
                             <!-- <button type="submit" class="btn btn-light btn-lg" name="Reset">Reset All</button> -->
-                            <button type="submit" class="btn btn-warning btn-lg ms-2" name="Update">Update</button>
+                            <button type="submit" class="btn btn-warning btn-lg ms-2" name="Update" onclick="return Message()">Update</button>
                         </div>
                     </form>
                     <!--  -->
                 </div>
-
+                <script>
+                    function Message() {
+                        return confirm("Save the changes?");
+                    }
+                </script>
 
             </section>
 

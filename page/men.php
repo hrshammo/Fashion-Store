@@ -75,7 +75,7 @@ include('../backend/common_function.php');
               <a href="Men/topware.php?ctg=Beauty/Skincare,Bath and Body">Skincare,Bath and Body</a>
               <a href="Men/topware.php?ctg=Beauty/Haircare">Haircare</a>
               <a href="Men/topware.php?ctg=Beauty/Fragrances">Fragrances</a>
-              <a href="Men/topware.php?ctg=Beauty/Men's Grooming">Men's Grooming</a>
+              <a href="Men/topware.php?ctg=Beauty/Men Grooming">Men Grooming</a>
               <a href="Men/topware.php?ctg=Beauty/Beauty Gift">Beauty Gift</a>
 
             </div>
@@ -191,22 +191,30 @@ include('../backend/common_function.php');
           <h3>Topwear</h3>
         </div>
       </a>
-      <div class="c_img_bg_u ">
-        <img class="ctag_img_u" src="../img/men/bottomware.jpg" alt="">
-        <h3>Bottomwear</h3>
-      </div>
-      <div class="c_img_bg_u ">
-        <img class="ctag_img_u" src="../img/men/festive.png" alt="">
-        <h3>Festive Wear</h3>
-      </div>
-      <div class="c_img_bg_u ">
-        <img class="ctag_img_u" src="../img/men/spors.jpg" alt="">
-        <h3>Sportswear</h3>
-      </div>
-      <div class="c_img_bg_u ">
-        <img class="ctag_img_u" src="../img/men/footwere.png" alt="">
-        <h3>Footwere</h3>
-      </div>
+      <a href="Men/topware.php?ctg=Men/Bottomwear">
+        <div class="c_img_bg_u ">
+          <img class="ctag_img_u" src="../img/men/bottomware.jpg" alt="">
+          <h3>Bottomwear</h3>
+        </div>
+      </a>
+      <a href="Men/topware.php?ctg=Men/Festive Wear">
+        <div class="c_img_bg_u ">
+          <img class="ctag_img_u" src="../img/men/festive.png" alt="">
+          <h3>Festive Wear</h3>
+        </div>
+      </a>
+      <a href="Men/topware.php?ctg=Men/Sportswear">
+        <div class="c_img_bg_u ">
+          <img class="ctag_img_u" src="../img/men/spors.jpg" alt="">
+          <h3>Sportswear</h3>
+        </div>
+      </a>
+      <a href="Men/topware.php?ctg=Men/Footwere">
+        <div class="c_img_bg_u ">
+          <img class="ctag_img_u" src="../img/men/footwere.png" alt="">
+          <h3>Footwere</h3>
+        </div>
+      </a>
     </div>
   </div>
 

@@ -143,7 +143,7 @@ $username = $_SESSION['admin_username'];
                             <a href="edit_product.php?id=' . $p_id . '" style=""><i class="bx bx-edit fa-2x" style="color:#00cc88" ></i></button></a>
                             </td>
                             <td>
-                            <a href="delete_product.php?id=' . $p_id . '" style=""><i class="bx bx-trash fa-2x" style="color:#f80e0e" ></i></a>
+                            <a href="delete_product.php?id=' . $p_id . '" onclick="return Message()"><i class="bx bx-trash fa-2x" style="color:#f80e0e" ></i></a>
                             </td>
                         </tr>';
                             } else {
@@ -159,7 +159,7 @@ $username = $_SESSION['admin_username'];
                             <a href="edit_product.php?id=' . $p_id . '" style=""><i class="bx bx-edit fa-2x" style="color:#00cc88" ></i></button></a>
                             </td>
                             <td>
-                            <a href="delete_product.php?id=' . $p_id . '" style=""><i class="bx bx-trash fa-2x" style="color:#f80e0e" ></i></a>
+                            <a href="delete_product.php?id=' . $p_id . '"  onclick="return Message()"><i class="bx bx-trash fa-2x" style="color:#f80e0e" ></i></a>
                             </td>
                         </tr>';
                             }
@@ -169,6 +169,7 @@ $username = $_SESSION['admin_username'];
                     // <i class="bx bxs-trash" style="color:#3a3a3a" ></i> delete icon
 
                     ?>
+
 
                 </tbody>
             </table>
@@ -256,6 +257,14 @@ $username = $_SESSION['admin_username'];
                                     <option value="Yellow">Yellow</option>
                                     <option value="White">White</option>
                                     <option value="Green">Green</option>
+                                    <option value="Navy">Navy</option>
+                                    <option value="Ash">Ash</option>
+                                    <option value="Pink">Pink</option>
+                                    <option value="Olvie">Olvie</option>
+                                    <option value="Sky Blue">Sky Blue</option>
+                                    
+
+
                                 </select>
                             </div>
 
@@ -312,6 +321,12 @@ $username = $_SESSION['admin_username'];
         myModal.addEventListener('shown.bs.modal', () => {
             myInput.focus()
         })
+    </script>
+
+    <script>
+        function Message() {
+            return Confirm("Are you sure you want to delete?");
+        }
     </script>
 
 </body>
