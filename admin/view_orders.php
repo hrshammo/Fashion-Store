@@ -164,11 +164,11 @@ $username = $_SESSION['admin_username'];
                             <td>' . $p_quantity . '</td>
                             <td>' . $status . '</td>
                             <td>
-                            <a href="accept_order.php?id=' . $order_id . "/" . $product_id . "/" . $quantity . ' " style=""><i class="fas fa-check-circle fa-2x text-success"></i></i></a>
+                            <a href="accept_order.php?id=' . $order_id . "/" . $product_id . "/" . $quantity . "/" . $invoice . ' " style=""><i class="fas fa-check-circle fa-2x text-success"></i></i></a>
                             
                             </td>
                             <td>
-                            <a href="delete_order.php?id=' . $order_id . '" style=""><i class="bx bx-x-circle fa-2x" style="color:#f80e0e" ></i></a>
+                            <a href="delete_order.php?id=' . $order_id . "/" . $invoice . '" style=""><i class="bx bx-x-circle fa-2x" style="color:#f80e0e" ></i></a>
                             </td>
                         </tr>';
                                             } else {
@@ -184,7 +184,7 @@ $username = $_SESSION['admin_username'];
                             <td>' . $status . '</td>
                             
                             <td>
-                            <a href="delete_order.php?id=' . $order_id . '" style="margin-left: 20px !important"><i class="bx bx-x-circle fa-2x" style="color:#f80e0e" ></i></a>
+                            <a href="mail_area/mail.php?id=' . $order_id . "/" . $invoice . '" style="margin-left: 20px !important"><i class="bx bx-x-circle fa-2x" style="color:#f80e0e" ></i></a>
                             </td>
                         </tr>';
                                             }

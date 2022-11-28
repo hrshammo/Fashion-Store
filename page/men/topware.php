@@ -192,7 +192,7 @@ include '../../backend/common_function.php';
       $subctag = $split[1];
     }
     ?>
-    <h3 class="link_w"> <a href="../../index.php">Home /</a> <a href="../<?php echo $ctag; ?>.php"><?php echo $ctag; ?> /</a> <?php echo $subctag; ?></h3>
+    <h3 class="link_w"> <a href="../../index.php">Home /</a> <a href=""><?php echo $ctag; ?> /</a> <?php echo $subctag; ?></h3>
     <div class="p_show">
 
       <!-- call product function to display all products -->

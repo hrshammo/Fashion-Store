@@ -215,7 +215,7 @@ include 'backend/common_function.php';
     <h2>Latest Products</h2>
     <div class="p_show">
       <?php
-      $sql = "select * from product sort order by p_date desc limit 8";
+      $sql = "select * from product order by p_date desc limit 9";
       $res = mysqli_query($conn, $sql);
       if ($res) {
         while ($row = mysqli_fetch_array($res)) {

@@ -15,8 +15,8 @@ if (isset($_POST['update'])) {
     $location = "img/" . $img_name;
 
     $type = "temp";
-    if ($admin_img == NULL) {
-        $admin_img = "NULL";
+    if ($img_name == NULL) {
+        $img_name = "NULL";
     }
     $sql = "insert into admin_info (admin_type,admin_name,admin_username,admin_email,admin_mobile,admin_password,admin_img) values('$type','$name', '$username', '$email', '$mobile', '$admin_password', '$img_name')";
     $res = mysqli_query($conn, $sql);

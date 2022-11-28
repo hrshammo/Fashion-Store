@@ -16,8 +16,8 @@ if (isset($_POST['update'])) {
 
 
 
-    if ($admin_img == NULL) {
-        $admin_img = "NULL";
+    if ($img_name == NULL) {
+        $img_name = "NULL";
     }
     $sql = "update admin_info set admin_name='$name', admin_email='$email', admin_mobile='$mobile', admin_img='$img_name' where admin_username='$username'";
     $res = mysqli_query($conn, $sql);

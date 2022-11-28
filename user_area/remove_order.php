@@ -14,7 +14,7 @@ if (isset($_GET['id'])) {
     $res = mysqli_query($conn, $sql);
     if ($res) {
         echo "<script>alert('Order  Removed')</script>";
-        echo "<script>window.open('view_orders.php?type=pending','_self')</script>";
+        echo "<script>window.open('view_orders.php?type=accepted','_self')</script>";
     } else {
         die(mysqli_error($conn));
     }

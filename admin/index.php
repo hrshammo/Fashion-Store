@@ -210,12 +210,10 @@ if (isset($_POST['login'])) {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    // echo $username . " " . $password;
     $sql = "select * from admin_info where admin_username='$username' and admin_password='$password'";
     $res = mysqli_query($conn, $sql);
 
     if ($res) {
-
         $row = mysqli_num_rows($res);
         if ($row == 1) {
             $_SESSION['admin_username'] = $username;

@@ -257,14 +257,6 @@ $username = $_SESSION['admin_username'];
                                     <option value="Yellow">Yellow</option>
                                     <option value="White">White</option>
                                     <option value="Green">Green</option>
-                                    <option value="Navy">Navy</option>
-                                    <option value="Ash">Ash</option>
-                                    <option value="Pink">Pink</option>
-                                    <option value="Olvie">Olvie</option>
-                                    <option value="Sky Blue">Sky Blue</option>
-                                    
-
-
                                 </select>
                             </div>
 

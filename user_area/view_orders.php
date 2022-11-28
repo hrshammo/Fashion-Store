@@ -176,6 +176,7 @@ $orders = PendingOrders();
                             if ($result) {
                                 while ($data = mysqli_fetch_array($result)) {
                                     $p_id = $data['product_id'];
+                                    $invoice = $data['invoice_number'];
                                     $sql = "select * from product where p_id='$p_id'";
                                     $res = mysqli_query($conn, $sql);
                                     $row = mysqli_fetch_array($res);
@@ -188,28 +189,13 @@ $orders = PendingOrders();
                                             <td>' . $data['amount'] . '</td>
                                             <td>' . $data['order_status'] . '</td>
                                             <td>
-                                            <a href="delete_order.php?id=' . $p_id . '" style="margin-left: 30px !important">
+                                            <a href="delete_order.php?id=' . $p_id . "/" . $invoice . '" style="margin-left: 30px !important">
                                             <i class="bx bx-x-circle fa-2x" style="color:#f80e0e" ></i></a>
                                             </td>
                                         </tr>';
                                 }
                             }
                         }
-                        // $result = mysqli_query($conn, $query);
-                        // if ($result) {
-                        //     while ($data = mysqli_fetch_array($result)) {
-                        //         echo '<tr>
-                        //     <th scope="row">' . $count++ . '</th>
-                        //     <td>' . $data['invoice_number'] . '</td>
-                        //     <td>' . $data['total_products'] . '</td>
-                        //     <td>' . $data['amount'] . '</td>
-                        //     <td>' . $data['order_status'] . '</td>
-                        //     <td>
-                        //     <a href="delete_order.php?id=' . $u_id . '" style="margin-left: 30px !important"><i class="bx bxs-trash" style="color:#3a3a3a" ></i></a>
-                        //     </td>
-                        // </tr>';
-                        //     }
-                        // }
                     }
                     ?>
 

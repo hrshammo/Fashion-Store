@@ -14,6 +14,9 @@ if (isset($_POST['update'])) {
 
     $user_img = $_FILES['img'];
     $img_name = $user_img['name'];
+    if ($img_name == NULL) {
+        $img_name = "NULL";
+    }
     $tmp_loc = $user_img['tmp_name'];
     $location = "img/" . $img_name;
     if ($user_img == NULL) {
