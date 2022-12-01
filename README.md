@@ -11,8 +11,9 @@ Thanks to these wonderful people ✨
 # User Interface
 
 ![fs-landing](https://user-images.githubusercontent.com/76872754/205027237-09655982-703e-400c-9297-34d7d3b3482d.png)
+Landing Page
 ![fs-landing (1)](https://user-images.githubusercontent.com/76872754/205026670-745fa850-cc7c-4933-869d-d0fa91f9720a.png)
-
+Single Product Page
 # Github Page
 https://hrshammo.github.io/Fashion-Store/
 # License
